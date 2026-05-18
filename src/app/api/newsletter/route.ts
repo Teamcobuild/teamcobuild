@@ -1,29 +1,39 @@
 import { NextResponse } from 'next/server';
 
+// Helper: Validate email format
+function isValidEmail(email: string): boolean {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email) && email.length <= 254;
+}
+
 export async function POST(request: Request) {
   try {
     const { email } = await request.json();
 
-    if (!email) {
-      return NextResponse.json({ error: 'Email is required' }, { status: 400 });
+    if (!email || !isValidEmail(email)) {
+      return NextResponse.json({ error: 'Valid email is required' }, { status: 400 });
     }
 
-    // Ensure required environment variables are present; convert list ID to number
-    if (!process.env.BREVO_API_KEY) console.error("BREVO_API_KEY is missing in .env.local");
-    if (!process.env.BREVO_LIST_ID) console.error("BREVO_LIST_ID is missing in .env.local");
-    const listId = Number(process.env.BREVO_LIST_ID);
+    // Validate required environment variables - return early if missing
+    const apiKey = process.env.BREVO_API_KEY;
+    const listId = process.env.BREVO_LIST_ID;
+
+    if (!apiKey || !listId) {
+      console.error('Missing required environment variables: BREVO_API_KEY or BREVO_LIST_ID');
+      return NextResponse.json({ error: 'Service configuration error' }, { status: 500 });
+    }
 
     const res = await fetch('https://api.brevo.com/v3/contacts', {
       method: 'POST',
       headers: {
-        'api-key': process.env.BREVO_API_KEY as string,
+        'api-key': apiKey,
         'Content-Type': 'application/json',
         'Accept': 'application/json',
       },
       body: JSON.stringify({
         email: email,
-        listIds: [listId], 
-        updateEnabled: true, 
+        listIds: [Number(listId)],
+        updateEnabled: true,
       }),
     });
 
