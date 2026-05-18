@@ -1,5 +1,23 @@
 const API_URL = "https://dev-teamcobuild.pantheonsite.io/graphql";
 
+// Helper: Sanitize GraphQL string to prevent injection
+function sanitizeGraphQLString(input: string): string {
+  return input.replace(/[\\"\n\r]/g, (char) => {
+    const escapeMap: Record<string, string> = {
+      '\\': '\\\\',
+      '"': '\\"',
+      '\n': '\\n',
+      '\r': '\\r',
+    };
+    return escapeMap[char] || char;
+  });
+}
+
+// Helper: Validate slug format (alphanumeric, hyphens, underscores only)
+function isValidSlug(slug: string): boolean {
+  return /^[a-zA-Z0-9_-]+$/.test(slug) && slug.length > 0 && slug.length <= 255;
+}
+
 async function fetchAPI(query: string, { variables }: { variables?: any } = {}) {
     const headers = { "Content-Type": "application/json" };
 
@@ -10,7 +28,6 @@ async function fetchAPI(query: string, { variables }: { variables?: any } = {}) 
             query,
             variables,
         }),
-        // Revalidate every hour (3600 seconds) or use 0 for real-time (slower)
         next: { revalidate: 3600 },
     });
 
@@ -44,6 +61,11 @@ export async function getAllPosts() {
 }
 
 export async function getPostBySlug(slug: string) {
+    if (!isValidSlug(slug)) {
+      throw new Error("Invalid slug format");
+    }
+
+    const sanitizedSlug = sanitizeGraphQLString(slug);
     const data = await fetchAPI(`
     query GetPostBySlug($id: ID!) {
       post(id: $id, idType: SLUG) {
@@ -63,7 +85,7 @@ export async function getPostBySlug(slug: string) {
       }
     }
   `, {
-        variables: { id: slug },
+        variables: { id: sanitizedSlug },
     });
     return data?.post;
 }
