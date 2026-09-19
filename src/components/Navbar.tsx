@@ -30,7 +30,7 @@ export default function Navbar() {
     { title: "Services", href: "/services" },
     { title: "Projects", href: "/project" },
     { title: "About", href: "/about" },
-    { title: "Pricing", href: "/pricing" },
+    // { title: "Pricing", href: "/pricing" },
     { title: "Blog", href: "/blog" },
   ];
 
@@ -50,8 +50,8 @@ export default function Navbar() {
           className={cn(
             "relative flex items-center justify-between rounded-full border transition-all duration-300",
             scrolled || isOpen
-              ? "bg-white/80 backdrop-blur-xl border-slate-200/60 shadow-lg shadow-slate-200/20 py-3 pl-6 pr-3"
-              : "bg-white/50 backdrop-blur-md border-transparent py-3 pl-6 pr-3"
+              ? "bg-white border-slate-200/60 shadow-lg shadow-slate-200/20 py-3 pl-6 pr-3"
+              : "bg-white  border-transparent py-3 pl-6 pr-3"
           )}
         >
           <Link href="/">
@@ -64,7 +64,7 @@ export default function Navbar() {
           </Link>
 
           {/* 2. Desktop Nav with Sliding Pill Animation */}
-          <div className="hidden md:flex items-center gap-1 bg-slate-100/50 p-1 rounded-full border border-slate-200/50 ml-4">
+          <div className="hidden md:flex items-center gap-1 p-1 ml-4">
             {navLinks.map((link, index) => (
               <Link
                 key={link.title}
@@ -112,11 +112,20 @@ export default function Navbar() {
 
           {/* 4. Mobile Toggle */}
           <button
-            className="md:hidden p-2 text-slate-600 bg-slate-100/50 rounded-full hover:bg-slate-200/50 transition-colors"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
+          className="md:hidden p-2 text-gray-800 z-50 relative flex flex-col justify-center items-center gap-1.5 w-10 h-10"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
+        >
+          <motion.span
+            animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 4 : 0 }}
+            className="block w-10 h-0.5 bg-current rounded-full origin-center"
+          ></motion.span>
+          <motion.span
+            animate={{ rotate: isOpen ? -45 : 0, y: isOpen ? -4 : 0 }}
+            className="block w-10 h-0.5 bg-current rounded-full origin-center"
+          ></motion.span>
+        </button>
+           
         </div>
 
         {/* 5. Mobile Menu (Detached Popup style) */}
