@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { motion } from "framer-motion";
-import { Lightbulb, Send, CheckCircle2, AlertCircle, ArrowLeft, Loader2 } from "lucide-react";
+import { Lightbulb, PaperPlaneRight, CheckCircle, WarningCircle, ArrowLeft, CircleNotch } from "@phosphor-icons/react";
 import Link from "next/link";
 
 export default function ProposalPage() {
@@ -70,7 +70,7 @@ export default function ProposalPage() {
         {/* Header */}
         <section className="max-w-2xl mx-auto text-center mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-100 text-amber-700 text-xs font-medium mb-6">
-            <Lightbulb size={12} />
+            <Lightbulb weight="duotone" size={12} />
             <span>RFC: Request for Concepts</span>
           </div>
           <h1 className="text-3xl tracking-tighter md:text-4xl font-bold text-slate-900 mb-4">
@@ -93,7 +93,7 @@ export default function ProposalPage() {
           {isSent ? (
             <div className="p-16 text-center flex flex-col items-center justify-center min-h-[400px]">
               <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-6 animate-bounce">
-                <CheckCircle2 size={32} />
+                <CheckCircle weight="duotone" size={32} />
               </div>
               <h2 className="text-2xl font-bold text-slate-900 mb-2">Proposal Received!</h2>
               <p className="text-slate-500 max-w-sm mb-8">
@@ -102,7 +102,7 @@ export default function ProposalPage() {
               <div className="flex gap-4">
                 <Link href="/projects">
                   <button className="text-sm font-bold text-slate-600 hover:text-emerald-600 hover:underline flex items-center gap-1">
-                    <ArrowLeft size={16} />
+                    <ArrowLeft weight="duotone" size={16} />
                     Back to Projects
                   </button>
                 </Link>
@@ -120,7 +120,7 @@ export default function ProposalPage() {
               {/* Error Message Display */}
               {error && (
                 <div className="p-4 bg-red-50 text-red-600 text-sm rounded-xl border border-red-100 flex items-center gap-2">
-                  <AlertCircle size={16} />
+                  <WarningCircle weight="duotone" size={16} />
                   {error}
                 </div>
               )}
@@ -167,7 +167,7 @@ export default function ProposalPage() {
 
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2 flex items-center gap-2">
-                      The Problem <AlertCircle size={14} className="text-slate-400" />
+                      The Problem <WarningCircle weight="duotone" size={14} className="text-slate-400" />
                     </label>
                     <textarea 
                       required
@@ -271,12 +271,12 @@ export default function ProposalPage() {
                 >
                   {isSubmitting ? (
                     <>
-                      <Loader2 size={18} className="animate-spin" />
+                      <CircleNotch weight="duotone" size={18} className="animate-spin" />
                       Sending...
                     </>
                   ) : (
                     <>
-                      Submit Proposal <Send size={18} />
+                      Submit Proposal <PaperPlaneRight weight="duotone" size={18} />
                     </>
                   )}
                 </button>

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, X, ArrowRight, ChefHat, Sparkles, Rocket, Store, BrainCircuit, Loader2, Send } from "lucide-react";
+import { Check, X, ArrowRight, ChefHat, Sparkle, Rocket, Storefront, Brain, CircleNotch, PaperPlaneRight } from "@phosphor-icons/react";
 
 // --- Sub-Component: Order Modal (The "Waiter" taking the order) ---
 const PricingFormModal = ({ isOpen, onClose, packageName }: any) => {
@@ -72,7 +72,7 @@ const PricingFormModal = ({ isOpen, onClose, packageName }: any) => {
         <div className="bg-slate-50 px-8 py-6 border-b border-slate-100 flex justify-between items-center">
           <div>
             <div className="flex items-center gap-2 text-emerald-600 font-bold text-sm uppercase tracking-wider mb-1">
-              <ChefHat size={16} />
+              <ChefHat weight="duotone" size={16} />
               Start Cooking
             </div>
             <h3 className="text-xl font-bold text-slate-900">
@@ -83,7 +83,7 @@ const PricingFormModal = ({ isOpen, onClose, packageName }: any) => {
             onClick={onClose}
             className="w-8 h-8 rounded-full bg-slate-200 text-slate-500 flex items-center justify-center hover:bg-slate-300 transition-colors"
           >
-            <X size={16} />
+            <X weight="duotone" size={16} />
           </button>
         </div>
 
@@ -92,7 +92,7 @@ const PricingFormModal = ({ isOpen, onClose, packageName }: any) => {
           {isSent ? (
             <div className="text-center py-10">
               <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-4 mx-auto animate-bounce">
-                <Check size={32} />
+                <Check weight="duotone" size={32} />
               </div>
               <h3 className="text-2xl font-bold text-slate-900 mb-2">Order Received!</h3>
               <p className="text-slate-500">
@@ -157,9 +157,9 @@ const PricingFormModal = ({ isOpen, onClose, packageName }: any) => {
                 className="w-full py-4 mt-2 bg-slate-900 text-white font-bold rounded-xl hover:bg-emerald-600 active:scale-[0.98] transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
-                  <> <Loader2 size={18} className="animate-spin" /> Sending Request... </>
+                  <> <CircleNotch weight="duotone" size={18} className="animate-spin" /> Sending Request... </>
                 ) : (
-                  <> Start Discussion <Send size={18} /> </>
+                  <> Start Discussion <PaperPlaneRight weight="duotone" size={18} /> </>
                 )}
               </button>
             </form>
@@ -221,7 +221,7 @@ const PricingCard = ({
           Est. Cost
         </span>
         <div className="flex items-center gap-2">
-          <ChefHat size={20} className="text-emerald-500" />
+          <ChefHat weight="duotone" size={20} className="text-emerald-500" />
           <span className={`text-lg font-bold font-mono ${highlight ? "text-white" : "text-slate-900"}`}>
             Cooking...
           </span>
@@ -241,7 +241,7 @@ const PricingCard = ({
           <div className={`mt-0.5 p-0.5 rounded-full ${
             highlight ? "bg-emerald-500/20 text-emerald-400" : "bg-emerald-100 text-emerald-600"
           }`}>
-            <Check size={12} strokeWidth={3} />
+            <Check weight="duotone" size={12} strokeWidth={3} />
           </div>
           <span className={`text-sm ${highlight ? "text-slate-300" : "text-slate-600"}`}>
             {feature}
@@ -259,7 +259,7 @@ const PricingCard = ({
         : "bg-slate-100 hover:bg-slate-200 text-slate-900"
     }`}>
       Start Discussion
-      <ArrowRight size={18} />
+      <ArrowRight weight="duotone" size={18} />
     </button>
   </motion.div>
 );
@@ -280,7 +280,7 @@ export default function PricingPage() {
             animate={{ opacity: 1, y: 0 }}
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-medium mb-6">
-              <Sparkles size={12} className="text-emerald-600" />
+              <Sparkle weight="duotone" size={12} className="text-emerald-600" />
               <span>Transparent Pricing</span>
             </div>
             <h1 className="text-4xl md:text-5xl tracking-tighter font-bold text-slate-900 mb-6">
@@ -353,7 +353,7 @@ export default function PricingPage() {
         <section className="max-w-3xl mx-auto pb-20">
           <div className="bg-emerald-50 rounded-3xl p-8 border border-emerald-100 flex gap-4">
             <div className="hidden md:block bg-white p-3 rounded-full h-max shadow-sm text-emerald-600">
-               <ChefHat size={24} />
+               <ChefHat weight="duotone" size={24} />
             </div>
             <div>
               <h3 className="text-lg font-bold text-slate-900 mb-2">Why does it say "Cooking"?</h3>

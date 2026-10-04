@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
-import { ArrowLeft, Calendar, Clock } from "lucide-react";
+import { ArrowLeft, Calendar, Clock } from "@phosphor-icons/react";
 import Link from "next/link";
 import Comments from "./Comments";
 async function getPost(slug: string) {
@@ -38,7 +38,7 @@ async function getPost(slug: string) {
     }
   `;
 
-  const res = await fetch('https://dev-teamcobuild.pantheonsite.io/graphql', {
+  const res = await fetch('https://dev-Teamcobuild.pantheonsite.io/graphql', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -79,7 +79,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             href="/blog"
             className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-emerald-600 transition-colors mb-12 group"
           >
-            <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
+            <ArrowLeft weight="duotone" size={16} className="group-hover:-translate-x-1 transition-transform" />
             Back to Engineering Logs
           </Link>
 
@@ -91,11 +91,11 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
             <div className="flex flex-wrap items-center gap-6 text-slate-400 text-sm font-medium">
               <div className="flex items-center gap-2">
-                <Calendar size={16} className="text-emerald-600" />
+                <Calendar weight="duotone" size={16} className="text-emerald-600" />
                 {new Date(post.date).toLocaleDateString('en-US', { dateStyle: 'long' })}
               </div>
               <div className="flex items-center gap-2">
-                <Clock size={16} />
+                <Clock weight="duotone" size={16} />
                 <span>5 min read</span>
               </div>
             </div>

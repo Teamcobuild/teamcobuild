@@ -4,7 +4,7 @@
 This is the official landing page for Team Cobuild. It is designed to introduce visitors to our community-centered software startup and share our mission of building practical solutions for local problems, starting here in Nigeria.
 
 ## Live Demo
-[https://teamcobuild.com.ng]
+[https://Teamcobuild.com.ng]
 
 ## Core Technologies
 * NextJs
@@ -18,4 +18,4 @@ This is the official landing page for Team Cobuild. It is designed to introduce 
 Clone the repository and open the `index.html` file in your browser to view the page locally. -->
 
 ## Team
-This project is built and maintained by teamCobuild.
+This project is built and maintained by Teamcobuild.

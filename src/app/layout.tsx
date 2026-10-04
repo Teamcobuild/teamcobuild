@@ -10,7 +10,7 @@ const montserrat = Montserrat({
 
 
 export const metadata: Metadata = {
-  title: "teamCobuild",
+  title: "Teamcobuild",
   description: "Team Cobuild is a community-centered software startup from Aba, Nigeria. We build practical digital solutions to solve local problems and empower communities through technology.",
 };
 

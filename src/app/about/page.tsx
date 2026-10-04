@@ -2,7 +2,7 @@
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { motion } from "framer-motion";
-import { Target, Users, Zap, MapPin, ArrowRight, Code, Heart } from "lucide-react";
+import { Target, Users, Lightning, MapPin, ArrowRight, Code, Heart } from "@phosphor-icons/react";
 import TeamSlider from "../../components/Teamslider";
 
 
@@ -28,16 +28,12 @@ export default function AboutPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-medium mb-6">
-              <MapPin size={12} className="text-secondary" />
-              <span>Born in Aba, Abia State</span>
-            </div>
             <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-8 tracking-tighter">
               We are engineering the <br className="hidden md:block" />
-              <span className="text-primary">digital infrastructure</span> for our city.
+              digital infrastructure for our city.
             </h1>
             <p className="text-lg md:text-xl text-slate-500 max-w-3xl mx-auto leading-relaxed">
-              teamCobuild is not just a software company; it is a movement. We are a collective of designers, engineers, and thinkers obsessed with solving foundational local problems using global-standard technology.
+              Teamcobuild is not just a software company; it is a movement. We are a collective of designers, engineers, and thinkers obsessed with solving foundational local problems using global-standard technology.
             </p>
           </motion.div>
         </section>
@@ -53,7 +49,7 @@ export default function AboutPage() {
               className="bg-slate-900 rounded-3xl p-8 md:p-12 text-white flex flex-col justify-between min-h-100"
             >
               <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-6">
-                <Target className="text-primary" size={24} />
+                <Target weight="duotone" className="text-primary" size={24} />
               </div>
               <div>
                 <h3 className="text-2xl font-bold mb-4">The Long-Term View</h3>
@@ -77,7 +73,7 @@ export default function AboutPage() {
                 className="bg-primary/5 border border-primary/10 rounded-3xl p-8 flex flex-col justify-center h-full"
               >
                 <div className="flex items-center gap-3 mb-3 text-primary font-bold text-xl">
-                  <Code size={24} />
+                  <Code weight="duotone" size={24} />
                   <span>Engineering Excellence</span>
                 </div>
                 <p className="text-primary/80">
@@ -93,7 +89,7 @@ export default function AboutPage() {
                 className="bg-white border border-slate-200 rounded-3xl p-8 flex flex-col justify-center h-full shadow-sm"
               >
                 <div className="flex items-center gap-3 mb-3 text-slate-900 font-bold text-xl">
-                  <Heart size={24} className="text-red-500" />
+                  <Heart weight="duotone" size={24} className="text-red-500" />
                   <span>Community Centered</span>
                 </div>
                 <p className="text-slate-500">
@@ -130,12 +126,12 @@ export default function AboutPage() {
           <h2 className="text-3xl font-bold text-slate-900 mb-6">Ready to see what we're building?</h2>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button className="flex items-center gap-2 bg-slate-900 text-white px-8 py-3.5 rounded-full font-medium hover:bg-primary transition-colors">
-              <Zap size={18} />
+              <Lightning weight="duotone" size={18} />
               View Projects
             </button>
             <button className="flex items-center gap-2 bg-white text-slate-600 border border-slate-200 px-8 py-3.5 rounded-full font-medium hover:bg-slate-50 transition-colors">
               Contact Us
-              <ArrowRight size={18} />
+              <ArrowRight weight="duotone" size={18} />
             </button>
           </div>
         </section>

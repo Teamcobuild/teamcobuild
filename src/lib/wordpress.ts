@@ -1,4 +1,4 @@
-const API_URL = "https://dev-teamcobuild.pantheonsite.io/graphql";
+const API_URL = "https://dev-Teamcobuild.pantheonsite.io/graphql";
 
 async function fetchAPI(query: string, { variables }: { variables?: any } = {}) {
     const headers = { "Content-Type": "application/json" };

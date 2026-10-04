@@ -1,17 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import {
-  Twitter,
-  Linkedin,
-  Github,
-  Instagram,
-  ArrowRight,
-  Mail,
-  Loader2,
-  CheckCircle2,
-  AlertCircle
-} from "lucide-react";
+import { Instagram, ArrowRight, CheckCircle, } from "lucide-react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import Image from "next/image";
@@ -39,7 +29,7 @@ const FooterLink = ({ href, label }: { href: string; label: string }) => (
   <li>
     <Link
       href={href}
-      className="text-sm text-slate-500 hover:text-slate-900 transition-colors inline-block py-1"
+      className="text-sm text-white hover:text-white/50 transition-colors inline-block py-1"
     >
       {label}
     </Link>
@@ -80,7 +70,7 @@ export default function Footer() {
 
   return (
     <footer className="w-full py-6  md:px-6 mt-12">
-      <div className="max-w-7xl mx-auto rounded-3xl p-8 md:p-12 lg:p-16 overflow-hidden relative">
+      <div className="max-w-7xl mx-auto bg-[#1b1b1b] rounded-3xl p-8 md:p-12 lg:p-16 overflow-hidden relative">
         {/* <div className="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-primary/10 rounded-full blur-3xl opacity-50 pointer-events-none" /> */}
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 relative z-10">
@@ -88,18 +78,18 @@ export default function Footer() {
           {/* Brand & Newsletter column */}
           <div className="lg:col-span-4 flex flex-col gap-6">
             <Image
-              src="/icons/teamcobuild.png"
-              alt="teamCobuild Logo"
+              src="/logo-white.png"
+              alt="Teamcobuild Logo"
               width={160}
               height={28}
             />
-            <p className="text-slate-500 text-sm leading-relaxed max-w-xs">
+            <p className="text-white text-sm leading-relaxed max-w-xs">
               Building the future of local software solutions. Join our community to start building better together.
             </p>
 
-            {/* Newsletter form */}
+            {/* Newsletter form
             <form className="relative max-w-sm" onSubmit={handleSubscribe}>
-              <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+              <Envelope weight="duotone" className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
 
               <input
                 type="email"
@@ -126,25 +116,25 @@ export default function Footer() {
                 )}
               >
                 {status === "loading" ? (
-                  <Loader2 size={14} className="animate-spin" />
+                  <CircleNotch weight="duotone" size={14} className="animate-spin" />
                 ) : status === "success" ? (
-                  <CheckCircle2 size={14} />
+                  <CheckCircle weight="duotone" size={14} />
                 ) : (
-                  <ArrowRight size={14} />
+                  <ArrowRight weight="duotone" size={14} />
                 )}
               </button>
-            </form>
+            </form> */}
 
-            {/* Error feedback */}
+            {/* Error feedback
             {status === "error" && (
               <motion.p
                 initial={{ opacity: 0, y: -5 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="text-red-500 text-xs flex items-center gap-1 ml-2 -mt-4"
               >
-                <AlertCircle size={12} /> Failed to subscribe. Please try again.
+                <WarningCircle weight="duotone" size={12} /> Failed to subscribe. Please try again.
               </motion.p>
-            )}
+            )} */}
           </div>
 
           <div className="hidden lg:block lg:col-span-1" />
@@ -152,7 +142,7 @@ export default function Footer() {
           <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-8">
             {/* Links group 1 */}
             <div className="flex flex-col gap-4">
-              <h4 className="font-semibold text-slate-900 text-sm">Product</h4>
+              <h4 className="font-semibold text-white/70 text-sm">Product</h4>
               <ul className="flex flex-col gap-2">
                 <FooterLink href="/features" label="Features" />
                 <FooterLink href="/integrations" label="Integrations" />
@@ -163,7 +153,7 @@ export default function Footer() {
 
             {/* Links group 2 */}
             <div className="flex flex-col gap-4">
-              <h4 className="font-semibold text-slate-900 text-sm">Company</h4>
+              <h4 className="font-semibold text-white/70 text-sm">Company</h4>
               <ul className="flex flex-col gap-2">
                 <FooterLink href="/about" label="About" />
                 <FooterLink href="/careers" label="Careers" />
@@ -175,7 +165,7 @@ export default function Footer() {
 
             {/* Links group 3 */}
             <div className="flex flex-col gap-4">
-              <h4 className="font-semibold text-slate-900 text-sm">Resources</h4>
+              <h4 className="font-semibold text-white/70 text-sm">Resources</h4>
               <ul className="flex flex-col gap-2">
                 <FooterLink href="/community" label="Community" />
                 <FooterLink href="/helpcenter" label="Help Center" />
@@ -186,18 +176,18 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="h-px w-full bg-slate-200 my-10" />
+        <div className="h-px w-full bg-white/20 my-10" />
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="text-sm text-slate-400">
+          <p className="text-sm text-white/60">
             &copy; <span suppressHydrationWarning>{currentYear}</span> Team Cobuild. All rights reserved.
           </p>
 
           <div className="flex items-center gap-3">
-            <SocialLink href="https://x.com/teamCobuild" icon={Twitter} />
+            {/* <SocialLink href="https://x.com/Teamcobuild" icon={Twitter} />
             <SocialLink href="https://www.linkedin.com/company/team-cobuild" icon={Linkedin} />
             <SocialLink href="https://github.com/CobuildDev" icon={Github} />
-            <SocialLink href="https://www.instagram.com/team.cobuild/" icon={Instagram} />
+            <SocialLink href="https://www.instagram.com/team.cobuild/" icon={Instagram} /> */}
           </div>
         </div>
       </div>

@@ -56,8 +56,8 @@ export default function Navbar() {
         >
           <Link href="/">
             <Image
-              src="/icons/teamcobuild.png"
-              alt="teamCobuild Logo"
+              src="/icons/Teamcobuild.png"
+              alt="Teamcobuild Logo"
               width={160}
               height={28}
             />

@@ -6,7 +6,7 @@ import Link from "next/link";
 import Hero from "../components/Hero";
 import Footer from "../components/Footer";  // The Hero component we just created
 import { motion } from "framer-motion";
-import { Users, Code2, Globe, Cpu, Database, Layout } from "lucide-react";
+import { Users, Code, Globe, Cpu, Database, Layout } from "lucide-react";
 
 // --- Sub-Component: Value Card ---
 const ValueCard = ({ icon: Icon, title, description, delay }: any) => (
@@ -52,10 +52,10 @@ export default function Home() {
               Our Engineering Foundation
             </p>
             <div className="flex flex-wrap justify-center gap-3 md:gap-6 opacity-70">
-              <TechItem icon={Code2} label="Next.js" />
-              <TechItem icon={Code2} label="ReactNative" />
-              <TechItem icon={Code2} label="TypeScript" />
-              <TechItem icon={Code2} label="Python" />
+              <TechItem icon={Code} label="Next.js" />
+              <TechItem icon={Code} label="ReactNative" />
+              <TechItem icon={Code} label="TypeScript" />
+              <TechItem icon={Code} label="Python" />
               <TechItem icon={Layout} label="Tailwind CSS" />
               <TechItem icon={Database} label="NodeJs" />
               <TechItem icon={Layout} label="Figma" />

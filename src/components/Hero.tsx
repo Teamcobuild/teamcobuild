@@ -1,8 +1,9 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, Terminal, Github } from "lucide-react";
+import { ArrowRight, } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -46,7 +47,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-lg md:text-xl text-slate-500 max-w-2xl mb-10 leading-relaxed"
         >
-          We are teamCoBuild. A community-centered collective engineering the
+          We are Teamcobuild. A community-centered collective engineering the
           digital infrastructure for our city and beyond. We build products that matter.
         </motion.p>
 
@@ -71,60 +72,28 @@ export default function Hero() {
             rel="noopener noreferrer"
             className="inline-flex h-12 items-center justify-center rounded-full bg-white border border-slate-200 px-8 font-medium text-slate-900 transition-all duration-300 hover:bg-slate-50 hover:scale-105 hover:shadow-lg"
           >
-            <Github size={18} className="mr-2" />
+            {/* <GithubLogo weight="duotone" size={18} className="mr-2" /> */}
             <span>Star on GitHub</span>
           </Link>
         </motion.div>
 
-        {/* 5. Hero Visual (The "Builder" Window) */}
+        {/* 5. Hero Visual */}
         <motion.div
           initial={{ opacity: 0, y: 40, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
           className="relative mt-20 w-full max-w-5xl"
         >
-          {/* Decorative Glow */}
-          <div className="absolute -inset-1 bg-liner-to-r from-primary to-accent rounded-2xl blur opacity-20" />
-
-          {/* Window Container */}
-          <div className="relative bg-slate-950 rounded-xl shadow-2xl border border-slate-800 overflow-hidden text-left">
-
-            {/* Window Header */}
-            <div className="flex items-center gap-2 px-4 py-3 border-b border-slate-800 bg-slate-900/50">
-              <div className="flex gap-1.5">
-                <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                <div className="w-3 h-3 rounded-full bg-green-500/80" />
-              </div>
-              <div className="ml-4 flex items-center gap-2 text-xs text-slate-400 font-mono bg-slate-800/50 px-2 py-0.5 rounded">
-                <Terminal size={12} />
-                <span>teamcobuild-cli — v1.0.0</span>
-              </div>
-            </div>
-
-            {/* Window Content (Code / Manifesto) */}
-            <div className="p-6 md:p-8 font-mono text-sm md:text-base text-slate-300 overflow-x-auto">
-              <div className="flex flex-col gap-2">
-                <div className="flex gap-2">
-                  <span className="text-primary">➜</span>
-                  <span className="text-accent">~</span>
-                  <span className="text-slate-400">teamcobuild init --location="Aba, NG"</span>
-                </div>
-                <div className="text-slate-500 pl-4 mb-2">Initializing new local ecosystem...</div>
-
-                <div className="flex gap-2">
-                  <span className="text-primary">➜</span>
-                  <span className="text-accent">~</span>
-                  <span className="text-slate-400">teamcobuild focus</span>
-                </div>
-                <div className="pl-4 text-primary/80">
-                  [✓] Identifying local pain points<br />
-                  [✓] Designing scalable architecture<br />
-                  [✓] Empowering community developers<br />
-                  [✓] <span className="animate-pulse">Building MVP...</span>
-                </div>
-              </div>
-            </div>
+          {/* Image Container */}
+          <div className="relative rounded-2xl overflow-hidden">
+            <Image
+              src="/hero-illustration.png"
+              alt="Teamcobuild Hero Illustration"
+              width={1400}
+              height={1000}
+              className="w-full h-auto object-cover"
+              priority
+            />
           </div>
         </motion.div>
       </div>

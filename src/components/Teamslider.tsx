@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Twitter, Zap, ArrowRight } from "lucide-react";
+import { GithubLogo, LinkedinLogo, TwitterLogo, Lightning, ArrowRight } from "@phosphor-icons/react";
 
 // team members
 const TEAM_DATA = [
@@ -65,7 +65,7 @@ const Card = ({ member }: { member: any }) => {
       <a href="/careers">
         <div className="min-w-[280px] h-[420px] border-2 border-dashed border-slate-200 rounded-3xl flex flex-col items-center justify-center text-center p-6 bg-slate-50/50 hover:bg-emerald-50/30 hover:border-emerald-300 transition-all group">
           <div className="w-16 h-16 rounded-full bg-white border border-slate-200 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-sm">
-            <Zap className="text-slate-400 group-hover:text-emerald-500" />
+            <Lightning weight="duotone" className="text-slate-400 group-hover:text-emerald-500" />
           </div>
           <h3 className="text-xl font-bold text-slate-900">You?</h3>
           <p className="text-slate-500 text-sm mt-2 font-medium">
@@ -100,7 +100,7 @@ const Card = ({ member }: { member: any }) => {
               href={member.socials.github}
               className="p-2 bg-white/90 text-slate-900 rounded-full hover:bg-white hover:text-black transition-colors shadow-lg"
             >
-              <Github size={16} />
+              <GithubLogo weight="duotone" size={16} />
             </a>
           )}
           {member.socials?.linkedin && (
@@ -108,7 +108,7 @@ const Card = ({ member }: { member: any }) => {
               href={member.socials.linkedin}
               className="p-2 bg-white/90 text-slate-900 rounded-full hover:bg-[#0077b5] hover:text-white transition-colors shadow-lg"
             >
-              <Linkedin size={16} />
+              <LinkedinLogo weight="duotone" size={16} />
             </a>
           )}
           {member.socials?.twitter && (
@@ -116,7 +116,7 @@ const Card = ({ member }: { member: any }) => {
               href={member.socials.twitter}
               className="p-2 bg-white/90 text-slate-900 rounded-full hover:bg-black hover:text-white transition-colors shadow-lg"
             >
-              <Twitter size={16} />
+              <TwitterLogo weight="duotone" size={16} />
             </a>
           )}
         </div>
@@ -156,7 +156,7 @@ export default function TeamSlider() {
       {/* Header / Controls Hint */}
       <div className="flex items-center justify-end px-4 md:px-0 mb-6">
         <div className="flex items-center gap-2 text-xs font-bold text-slate-400 uppercase tracking-widest select-none">
-          Drag to explore <ArrowRight size={14} />
+          Drag to explore <ArrowRight weight="duotone" size={14} />
         </div>
       </div>
 

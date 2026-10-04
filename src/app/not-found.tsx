@@ -4,7 +4,7 @@ import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { motion } from "framer-motion";
-import { Home, ArrowLeft, Terminal, Construction } from "lucide-react";
+import { House, ArrowLeft, } from "lucide-react";
 
 export default function NotFound() {
   return (
@@ -20,42 +20,17 @@ export default function NotFound() {
 
         <div className="max-w-2xl w-full text-center">
 
-          {/* Animated 404 Glitch */}
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            className="relative inline-block mb-8"
-          >
-            <h1 className="text-[120px] md:text-[180px] font-bold text-slate-100 leading-none select-none">
-              404
-            </h1>
-            <motion.div
-              animate={{
-                x: [-2, 2, -2],
-                opacity: [1, 0.8, 1]
-              }}
-              transition={{ repeat: Infinity, duration: 0.2, repeatType: "mirror" }}
-              className="absolute inset-0 flex items-center justify-center text-[120px] md:text-[180px] font-bold text-slate-900/10 mix-blend-overlay leading-none"
-            >
-              404
-            </motion.div>
 
-            {/* Construction Icon Badge */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white border border-slate-200 p-4 rounded-2xl shadow-xl rotate-12">
-              <Construction size={48} className="text-primary" />
-            </div>
-          </motion.div>
-
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+          <h2 className="text-2xl md:text-3xl mt-10 md:mt-0 font-bold text-slate-900 mb-4">
             Blueprint not found.
           </h2>
           <p className="text-slate-500 text-lg mb-10 max-w-md mx-auto">
             You've wandered into an empty lot. We haven't built this part of the infrastructure yet.
           </p>
 
-          {/* Fake Terminal Log */}
+          {/* imitation Terminal Log */}
           <div className="bg-slate-950 rounded-xl p-4 max-w-md mx-auto mb-10 text-left font-mono text-xs md:text-sm shadow-2xl border border-slate-800">
-            <div className="flex gap-1.5 mb-3 border-b border-slate-800 pb-2">
+            <div className="flex gap-1.5 mb-3 pb-2">
               <div className="w-2.5 h-2.5 rounded-full bg-red-500" />
               <div className="w-2.5 h-2.5 rounded-full bg-yellow-500" />
               <div className="w-2.5 h-2.5 rounded-full bg-green-500" />
@@ -74,7 +49,7 @@ export default function NotFound() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/">
               <button className="flex items-center gap-2 bg-slate-900 text-white px-8 py-3.5 rounded-full font-medium hover:bg-primary transition-colors shadow-lg shadow-primary/10">
-                <Home size={18} />
+                <House size={18} />
                 Return Home
               </button>
             </Link>

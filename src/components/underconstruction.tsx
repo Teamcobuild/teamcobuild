@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowLeft, Hammer, Terminal, Loader2 } from "lucide-react";
+import { ArrowLeft, Hammer, TerminalWindow, CircleNotch } from "@phosphor-icons/react";
 
 interface UnderConstructionProps {
   pageName?: string; // e.g. "investors" or "careers"
@@ -35,7 +35,7 @@ export default function UnderConstruction({
           animate={{ opacity: 1, y: 0 }}
           className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-highlight/10 border border-highlight/20 text-highlight text-xs font-medium mb-8"
         >
-          <Loader2 size={12} className="animate-spin" />
+          <CircleNotch weight="duotone" size={12} className="animate-spin" />
           <span>Construction in Progress</span>
         </motion.div>
 
@@ -54,7 +54,7 @@ export default function UnderConstruction({
               <div className="w-3 h-3 rounded-full bg-green-500/80" />
             </div>
             <div className="ml-2 text-[10px] font-mono text-slate-500 flex items-center gap-1">
-              <Terminal size={10} />
+              <TerminalWindow weight="duotone" size={10} />
               bash — 80x24
             </div>
           </div>
@@ -63,18 +63,18 @@ export default function UnderConstruction({
           <div className="p-6 font-mono text-sm space-y-2">
             <div className="flex gap-2 text-slate-300">
               <span className="text-primary">➜</span>
-              <span className="text-blue-400">~/teamcobuild</span>
+              <span className="text-blue-400">~/Teamcobuild</span>
               <span>git checkout -b {commandName}</span>
             </div>
             <div className="text-slate-500 pl-4">Switched to a new branch '{commandName}'</div>
 
             <div className="flex gap-2 text-slate-300 pt-2">
               <span className="text-primary">➜</span>
-              <span className="text-blue-400">~/teamcobuild</span>
+              <span className="text-blue-400">~/Teamcobuild</span>
               <span>npm run build</span>
             </div>
             <div className="text-slate-500 pl-4">
-              <div>teamcobuild-web@0.1.0 build</div>
+              <div>Teamcobuild-web@0.1.0 build</div>
               <div>next build</div>
             </div>
 
@@ -117,7 +117,7 @@ export default function UnderConstruction({
         >
           <Link href="/">
             <button className="inline-flex items-center gap-2 bg-white text-slate-700 border border-slate-200 px-6 py-3 rounded-full font-medium hover:bg-slate-50 transition-colors hover:border-primary/20">
-              <ArrowLeft size={18} />
+              <ArrowLeft weight="duotone" size={18} />
               Return to Dashboard
             </button>
           </Link>

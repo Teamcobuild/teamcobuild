@@ -3,18 +3,7 @@ import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  ArrowUpRight,
-  Github,
-  Layers,
-  InfoIcon,
-  Zap,
-  Box,
-  Layout,
-  GitBranch,
-  FlaskConical,
-  ArrowRight,
-} from "lucide-react";
+import { ArrowUpRight, GithubLogo, Layers, InfoIcon, Lightning, Box, Layout, GitBranch, FlaskConical, ArrowRight } from "@phosphor-icons/react";
 
 // --- Projects ---
 const PROJECTS = [
@@ -113,7 +102,7 @@ const ProjectCard = ({ project }: { project: any }) => (
               href={project.links.github}
               className="p-2 bg-white/20 backdrop-blur-md text-white rounded-full hover:bg-white hover:text-black transition-colors"
             >
-              <Github size={16} />
+              <GithubLogo weight="duotone" size={16} />
             </a>
           )}
           {project.links.demo && (
@@ -121,7 +110,7 @@ const ProjectCard = ({ project }: { project: any }) => (
               href={project.links.demo}
               className="p-2 bg-white/20 backdrop-blur-md text-white rounded-full hover:bg-white hover:text-black transition-colors"
             >
-              <ArrowUpRight size={16} />
+              <ArrowUpRight weight="duotone" size={16} />
             </a>
           )}
         </div>
@@ -129,7 +118,7 @@ const ProjectCard = ({ project }: { project: any }) => (
 
       {/* Decorative Icon (Abstract) */}
       <div className="absolute right-4 bottom-4 text-white/20 transform rotate-12 scale-150 pointer-events-none">
-        <Box size={80} />
+        <Box weight="duotone" size={80} />
       </div>
     </div>
 
@@ -187,10 +176,7 @@ export default function ProjectsPage() {
             className="flex flex-col md:flex-row md:items-end justify-between gap-6"
           >
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-medium mb-4">
-                <FlaskConical size={12} className="text-emerald-600" />
-                <span>The teamCoBuild Lab</span>
-              </div>
+              
               <h1 className="text-4xl md:text-5xl tracking-tighter font-bold text-slate-900 mb-4">
                 Our Projects
               </h1>
@@ -239,7 +225,7 @@ export default function ProjectsPage() {
               className="min-h-[400px] border-2 border-dashed border-slate-200 rounded-3xl flex flex-col items-center justify-center text-center p-8 bg-slate-50/50 hover:bg-emerald-50/30 hover:border-emerald-300 transition-all group cursor-pointer"
             >
               <div className="w-16 h-16 rounded-full bg-white border border-slate-200 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-sm">
-                <Layout className="text-slate-400 group-hover:text-emerald-500" />
+                <Layout weight="duotone" className="text-slate-400 group-hover:text-emerald-500" />
               </div>
               <h3 className="text-xl font-bold text-slate-900">
                 Have an idea?
@@ -249,7 +235,7 @@ export default function ProjectsPage() {
                 your concept.
               </p>
               <button className="text-sm font-bold text-emerald-600 flex items-center gap-1 group-hover:gap-2 transition-all">
-                Submit Proposal <ArrowRight size={16} />
+                Submit Proposal <ArrowRight weight="duotone" size={16} />
               </button>
             </motion.div>
           </motion.div>
@@ -263,7 +249,7 @@ export default function ProjectsPage() {
 
             <div className="relative z-10">
               <div className="flex items-center gap-3 mb-4">
-                <GitBranch className="text-emerald-400" />
+                <GitBranch weight="duotone" className="text-emerald-400" />
                 <span className="text-emerald-400 font-bold uppercase tracking-widest text-xs">
                   Open Source
                 </span>
@@ -277,7 +263,7 @@ export default function ProjectsPage() {
                 sharing code.
               </p>
               <div className="flex opacity-40 mt-4 items-center gap-3 mb-4">
-                <InfoIcon className="text-emerald-400" />
+                <InfoIcon weight="duotone" className="text-emerald-400" />
                 <span className="text-emerald-400 font-bold tracking-widest text-xs">
                   Not yet available!
                 </span>
@@ -286,7 +272,7 @@ export default function ProjectsPage() {
 
             <div className="relative z-10 flex gap-4">
               <button className="bg-white text-slate-900 px-6 py-3 rounded-full font-bold hover:bg-emerald-50 transition-colors flex items-center gap-2">
-                <Github size={20} />
+                <GithubLogo weight="duotone" size={20} />
                 GitHub Org
               </button>
             </div>
