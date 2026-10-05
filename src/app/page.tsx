@@ -7,6 +7,7 @@ import Hero from "../components/Hero";
 import Footer from "../components/Footer";  // The Hero component we just created
 import { motion } from "framer-motion";
 import { Users, Code, Globe, Cpu, Database, Layout } from "lucide-react";
+import FAQ from "@/components/FAQ";
 
 // --- Sub-Component: Value Card ---
 const ValueCard = ({ icon: Icon, title, description, delay }: any) => (
@@ -98,30 +99,7 @@ export default function Home() {
           </div>
         </section>
         <Partners />
-        {/* 5. Pre-Launch CTA */}
-        <section className="px-4 md:px-6 pb-20">
-          <div className="max-w-5xl mx-auto bg-slate-900 rounded-3xl p-8 md:p-16 text-center relative overflow-hidden">
-            {/* Abstract Background Shapes */}
-            <div className="absolute top-0 left-0 w-full h-full opacity-20 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-primary via-slate-900 to-slate-900 pointer-events-none" />
-
-            <div className="relative z-10 flex flex-col items-center">
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                Join the build process.
-              </h2>
-              <p className="text-slate-300 text-lg max-w-xl mb-8">
-                We are currently in the ideation and development phase. Follow us on GitHub to see what we are cooking up next.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="https://github.com/CobuildDev" className="px-8 py-3 bg-secondary hover:bg-secondary/90 text-white font-bold rounded-full transition-colors">
-                  View GitHub Organization
-                </Link>
-                <Link href="/contact" className="px-8 py-3 bg-transparent border border-slate-700 text-white hover:bg-slate-800 font-medium rounded-full transition-colors">
-                  Contact the Team
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
+        <FAQ />
 
       </main>
 

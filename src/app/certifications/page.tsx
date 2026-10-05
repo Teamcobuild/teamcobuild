@@ -3,7 +3,7 @@ import React from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { motion } from "framer-motion";
-import { FileText, Certificate, ArrowSquareOut } from "@phosphor-icons/react";
+import { FileText, Award, ExternalLink } from "lucide-react";
 import Link from "next/link";
 
 const certifications = [
@@ -74,7 +74,7 @@ export default function CertificationsPage() {
             transition={{ duration: 0.5 }}
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-medium mb-6">
-              <Certificate weight="duotone" size={14} className="text-secondary" />
+              <Award size={14} className="text-secondary" />
               <span>Professional Credentials</span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 tracking-tighter">
@@ -104,13 +104,13 @@ export default function CertificationsPage() {
                   
                   {/* Aesthetic geometric icon for dummy thumbnail */}
                   <div className="w-20 h-20 rounded-2xl bg-white shadow-sm border border-slate-100 flex items-center justify-center z-20 group-hover:scale-110 transition-transform duration-500">
-                    <Certificate weight="duotone" size={32} className="text-primary/40" />
+                    <Award size={32} className="text-primary/40" />
                   </div>
                   
                   {/* File Type Badge */}
                   <div className="absolute top-4 right-4 z-20">
                     <span className="px-2.5 py-1 rounded-full bg-white text-xs font-semibold text-slate-600 shadow-sm border border-slate-200 flex items-center gap-1.5">
-                      <FileText weight="duotone" size={12} className={cert.type === 'PDF' ? "text-red-500" : "text-blue-500"} />
+                      <FileText size={12} className={cert.type === 'PDF' ? "text-red-500" : "text-blue-500"} />
                       {cert.type}
                     </span>
                   </div>
@@ -133,7 +133,7 @@ export default function CertificationsPage() {
                     className="flex justify-center items-center gap-2 w-full py-3 rounded-xl bg-slate-50 text-slate-600 font-medium hover:bg-primary hover:text-white transition-colors"
                   >
                     View Document
-                    <ArrowSquareOut weight="duotone" size={16} />
+                    <ExternalLink size={16} />
                   </Link>
                 </div>
               </motion.div>

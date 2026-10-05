@@ -112,20 +112,20 @@ export default function Navbar() {
 
           {/* 4. Mobile Toggle */}
           <button
-          className="md:hidden p-2 text-gray-800 z-50 relative flex flex-col justify-center items-center gap-1.5 w-10 h-10"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
-        >
-          <motion.span
-            animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 4 : 0 }}
-            className="block w-10 h-0.5 bg-current rounded-full origin-center"
-          ></motion.span>
-          <motion.span
-            animate={{ rotate: isOpen ? -45 : 0, y: isOpen ? -4 : 0 }}
-            className="block w-10 h-0.5 bg-current rounded-full origin-center"
-          ></motion.span>
-        </button>
-           
+            className="md:hidden p-2 text-gray-800 z-50 relative flex flex-col justify-center items-center gap-1.5 w-10 h-10"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            <motion.span
+              animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 4 : 0 }}
+              className="block w-10 h-0.5 bg-current rounded-full origin-center"
+            ></motion.span>
+            <motion.span
+              animate={{ rotate: isOpen ? -45 : 0, y: isOpen ? -4 : 0 }}
+              className="block w-10 h-0.5 bg-current rounded-full origin-center"
+            ></motion.span>
+          </button>
+
         </div>
 
         {/* 5. Mobile Menu (Detached Popup style) */}
@@ -138,7 +138,7 @@ export default function Navbar() {
               transition={{ duration: 0.2 }}
               className="absolute top-full left-0 right-0 mt-2 mx-4 md:hidden"
             >
-              <div className="bg-white/90 backdrop-blur-xl border border-slate-200 rounded-3xl shadow-xl overflow-hidden p-2">
+              <div className="bg-white border border-slate-200 rounded-3xl overflow-hidden p-2">
                 <div className="flex flex-col gap-1">
                   {navLinks.map((link, idx) => (
                     <motion.div

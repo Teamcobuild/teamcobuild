@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { motion } from "framer-motion";
-import { Envelope, MapPin, ChatTeardrop, ArrowRight, CheckCircle, CircleNotch, WarningCircle } from "@phosphor-icons/react";
+import { Mail, MapPin, MessageCircle, ArrowRight, CheckCircle, Loader2, AlertCircle } from "lucide-react";
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -101,7 +101,7 @@ export default function ContactPage() {
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-emerald-600 shrink-0 shadow-sm">
-                      <Envelope weight="duotone" size={18} />
+                      <Mail size={18} />
                     </div>
                     <div>
                       <p className="text-sm font-semibold text-slate-900">Email us</p>
@@ -111,7 +111,7 @@ export default function ContactPage() {
 
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-emerald-600 shrink-0 shadow-sm">
-                      <MapPin weight="duotone" size={18} />
+                      <MapPin size={18} />
                     </div>
                     <div>
                       <p className="text-sm font-semibold text-slate-900">Headquarters</p>
@@ -128,7 +128,7 @@ export default function ContactPage() {
 
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-emerald-600 shrink-0 shadow-sm">
-                      <ChatTeardrop weight="duotone" size={18} />
+                      <MessageCircle size={18} />
                     </div>
                     <div>
                       <p className="text-sm font-semibold text-slate-900">Community</p>
@@ -159,7 +159,7 @@ export default function ContactPage() {
                   className="h-full flex flex-col items-center justify-center text-center py-10"
                 >
                   <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-6">
-                    <CheckCircle weight="duotone" size={32} />
+                    <CheckCircle size={32} />
                   </div>
                   <h3 className="text-2xl font-bold text-slate-900 mb-2">Message Sent!</h3>
                   <p className="text-slate-500 max-w-xs mx-auto mb-8">
@@ -177,7 +177,7 @@ export default function ContactPage() {
 
                   {error && (
                     <div className="p-4 bg-red-50 text-red-600 text-sm rounded-xl border border-red-100 flex items-center gap-2">
-                      <WarningCircle weight="duotone" size={16} />
+                      <AlertCircle size={16} />
                       {error}
                     </div>
                   )}
@@ -245,13 +245,13 @@ export default function ContactPage() {
                     >
                       {isSubmitting ? (
                         <>
-                          <CircleNotch weight="duotone" size={18} className="animate-spin" />
+                          <Loader2 size={18} className="animate-spin" />
                           Sending...
                         </>
                       ) : (
                         <>
                           Send Message
-                          <ArrowRight weight="duotone" size={18} />
+                          <ArrowRight size={18} />
                         </>
                       )}
                     </button>

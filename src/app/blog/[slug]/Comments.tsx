@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ChatTeardrop, User, Clock, CircleNotch } from "@phosphor-icons/react";
+import { MessageCircle, User, Clock, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface CommentNode {
@@ -150,7 +150,7 @@ export default function Comments({ comments, postId }: CommentsProps) {
             className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-xl transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
           >
             {isSubmitting ? (
-              <CircleNotch weight="duotone" size={18} className="animate-spin" />
+              <Loader2 size={18} className="animate-spin" />
             ) : null}
             <span>Submit Comment</span>
           </button>
@@ -163,12 +163,12 @@ export default function Comments({ comments, postId }: CommentsProps) {
             <div key={comment.id} className="p-6 bg-white border border-slate-200 rounded-2xl relative">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center text-slate-400">
-                  <User weight="duotone" size={20} />
+                  <User size={20} />
                 </div>
                 <div>
                   <div className="font-bold text-slate-800 text-sm">{comment.author?.node?.name || "Anonymous"}</div>
                   <div className="text-xs font-mono text-slate-500 flex items-center gap-1 mt-0.5">
-                    <Clock weight="duotone" size={12} />
+                    <Clock size={12} />
                     {new Date(comment.date).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}
                   </div>
                 </div>

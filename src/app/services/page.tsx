@@ -3,7 +3,7 @@ import React from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { motion } from "framer-motion";
-import { Code, Palette, LineChart, ArrowRight, CheckCircle, Layers, Smartphone, Globe } from "@phosphor-icons/react";
+import { Code, Palette, LineChart, ArrowRight, CheckCircle, Layers, Smartphone, Globe } from "lucide-react";
 import Link from "next/link";
 
 // --- Sub-Component: Service Card ---
@@ -64,7 +64,7 @@ export default function ServicesPage() {
             animate={{ opacity: 1, y: 0 }}
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-medium mb-6">
-              <Layers weight="duotone" size={12} className="text-emerald-600" />
+              <Layers size={12} className="text-emerald-600" />
               <span>Engineering Partnerships</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-slate-900 mb-6">
@@ -82,7 +82,7 @@ export default function ServicesPage() {
           <div className="grid md:grid-cols-3 gap-6">
 
             <ServiceCard
-              icon={Code2}
+              icon={Code}
               title="Software Development"
               description="We build robust web and mobile applications. We don't just ship code; we ship scalable, secure, and maintainable systems."
               tags={["Web Apps", "Mobile Dev", "APIs", "SaaS MVPs"]}
@@ -127,7 +127,7 @@ export default function ServicesPage() {
                     "Post-launch support options"
                   ].map((item, i) => (
                     <li key={i} className="flex items-center gap-3 text-slate-700 font-medium">
-                      <CheckCircle weight="duotone" size={20} className="text-emerald-500 shrink-0" />
+                      <CheckCircle size={20} className="text-emerald-500 shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -173,7 +173,7 @@ export default function ServicesPage() {
           </p>
           <Link href="/contact" className="inline-flex items-center gap-2 bg-slate-900 text-white px-8 py-3.5 rounded-full font-medium hover:bg-emerald-600 transition-colors">
             Start a Conversation
-            <ArrowRight weight="duotone" size={18} />
+            <ArrowRight size={18} />
           </Link>
         </section>
 

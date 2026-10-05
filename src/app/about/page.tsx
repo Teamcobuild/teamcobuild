@@ -2,7 +2,7 @@
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { motion } from "framer-motion";
-import { Target, Users, Lightning, MapPin, ArrowRight, Code, Heart } from "@phosphor-icons/react";
+import { Target, Users, Zap, MapPin, ArrowRight, Code, Heart } from "lucide-react";
 import TeamSlider from "../../components/Teamslider";
 
 
@@ -49,7 +49,7 @@ export default function AboutPage() {
               className="bg-slate-900 rounded-3xl p-8 md:p-12 text-white flex flex-col justify-between min-h-100"
             >
               <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-6">
-                <Target weight="duotone" className="text-primary" size={24} />
+                <Target className="text-primary" size={24} />
               </div>
               <div>
                 <h3 className="text-2xl font-bold mb-4">The Long-Term View</h3>
@@ -73,7 +73,7 @@ export default function AboutPage() {
                 className="bg-primary/5 border border-primary/10 rounded-3xl p-8 flex flex-col justify-center h-full"
               >
                 <div className="flex items-center gap-3 mb-3 text-primary font-bold text-xl">
-                  <Code weight="duotone" size={24} />
+                  <Code size={24} />
                   <span>Engineering Excellence</span>
                 </div>
                 <p className="text-primary/80">
@@ -89,7 +89,7 @@ export default function AboutPage() {
                 className="bg-white border border-slate-200 rounded-3xl p-8 flex flex-col justify-center h-full shadow-sm"
               >
                 <div className="flex items-center gap-3 mb-3 text-slate-900 font-bold text-xl">
-                  <Heart weight="duotone" size={24} className="text-red-500" />
+                  <Heart size={24} className="text-red-500" />
                   <span>Community Centered</span>
                 </div>
                 <p className="text-slate-500">
@@ -126,12 +126,12 @@ export default function AboutPage() {
           <h2 className="text-3xl font-bold text-slate-900 mb-6">Ready to see what we're building?</h2>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button className="flex items-center gap-2 bg-slate-900 text-white px-8 py-3.5 rounded-full font-medium hover:bg-primary transition-colors">
-              <Lightning weight="duotone" size={18} />
+              <Zap size={18} />
               View Projects
             </button>
             <button className="flex items-center gap-2 bg-white text-slate-600 border border-slate-200 px-8 py-3.5 rounded-full font-medium hover:bg-slate-50 transition-colors">
               Contact Us
-              <ArrowRight weight="duotone" size={18} />
+              <ArrowRight size={18} />
             </button>
           </div>
         </section>

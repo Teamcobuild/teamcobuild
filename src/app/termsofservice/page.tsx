@@ -3,7 +3,7 @@ import React from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { motion } from "framer-motion";
-import { Shield, Scales, FileText, ArrowLeft } from "@phosphor-icons/react";
+import { Shield, Scale, FileText, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
 // --- Sub-Component: Section Heading ---
@@ -35,7 +35,7 @@ export default function TermsPage() {
             animate={{ opacity: 1, y: 0 }}
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-600 text-xs font-medium mb-6 shadow-sm">
-              <Scales weight="duotone" size={12} className="text-emerald-600" />
+              <Scale size={12} className="text-emerald-600" />
               <span>Legal Documentation</span>
             </div>
             <h1 className="text-3xl md:text-5xl tracking-tighter font-bold text-slate-900 mb-4">
@@ -70,7 +70,7 @@ export default function TermsPage() {
 
             <SectionHeading number="2" title="The 'Lab' Nature of Services" />
             <div className="bg-amber-50 border border-amber-100 p-4 rounded-xl my-4 text-sm text-amber-800 flex gap-3 items-start">
-              <Shield weight="duotone" className="shrink-0 mt-0.5" size={18} />
+              <Shield className="shrink-0 mt-0.5" size={18} />
               <div>
                 <strong>Important Notice:</strong> Many of our products are "MVPs" (Minimum Viable Products) or "Experiments." They may contain bugs, experience downtime, or change significantly without notice.
               </div>
@@ -125,7 +125,7 @@ export default function TermsPage() {
         {/* Back Link */}
         <div className="text-center mt-12">
           <Link href="/" className="inline-flex items-center gap-2 text-slate-500 hover:text-emerald-600 transition-colors text-sm font-medium">
-            <ArrowLeft weight="duotone" size={16} />
+            <ArrowLeft size={16} />
             Back to Home
           </Link>
         </div>

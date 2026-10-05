@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../../components/Navbar";
 import { getAllPosts } from "@/lib/wordpress";
 import Footer from "../../components/Footer";
-import { PenNib, BookOpen, ArrowRight } from "@phosphor-icons/react";
+import { PenTool, BookOpen, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 async function getPosts() {
@@ -51,7 +51,7 @@ export default async function BlogPage() {
           /* COMING SOON STATE (Your Original UI) */
           <div className="w-full max-w-2xl bg-white border border-slate-200 rounded-3xl p-8 md:p-16 text-center relative shadow-sm">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-600 text-xs font-medium mb-8">
-              <PenNib weight="duotone" size={12} className="text-emerald-600" />
+              <PenTool size={12} className="text-emerald-600" />
               <span>Editorial in Progress</span>
             </div>
             <h1 className="text-3xl tracking-tighter md:text-5xl font-bold text-slate-900 mb-4">Words are loading...</h1>
@@ -89,7 +89,7 @@ export default async function BlogPage() {
                       />
                     </div>
                     <div className="flex items-center gap-2 text-sm font-bold text-slate-900 group-hover:gap-4 transition-all">
-                      Read Entry <ArrowRight weight="duotone" size={16} />
+                      Read Entry <ArrowRight size={16} />
                     </div>
                   </div>
                 </Link>

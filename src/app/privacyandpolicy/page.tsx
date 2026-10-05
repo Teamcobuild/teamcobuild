@@ -3,7 +3,7 @@ import React from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { motion } from "framer-motion";
-import { Lock, Eye, HardDrives, ShieldCheck, ArrowLeft, Envelope } from "@phosphor-icons/react";
+import { Lock, Eye, HardDrive, ShieldCheck, ArrowLeft, Mail } from "lucide-react";
 import Link from "next/link";
 
 // --- Sub-Component: Section Heading ---
@@ -31,7 +31,7 @@ export default function PrivacyPage() {
             animate={{ opacity: 1, y: 0 }}
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-600 text-xs font-medium mb-6 shadow-sm">
-              <Lock weight="duotone" size={12} className="text-emerald-600" />
+              <Lock size={12} className="text-emerald-600" />
               <span>Data Protection</span>
             </div>
             <h1 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4 tracking-tight">
@@ -93,13 +93,13 @@ export default function PrivacyPage() {
             </p>
             <div className="grid md:grid-cols-2 gap-4 my-6 not-prose">
               <div className="p-4 bg-slate-50 rounded-lg border border-slate-100 flex gap-3">
-                <Envelope weight="duotone" className="text-emerald-600 shrink-0" size={20} />
+                <Mail className="text-emerald-600 shrink-0" size={20} />
                 <span className="text-sm">
                   To send you updates about our MVPs and community events.
                 </span>
               </div>
               <div className="p-4 bg-slate-50 rounded-lg border border-slate-100 flex gap-3">
-                <ShieldCheck weight="duotone" className="text-emerald-600 shrink-0" size={20} />
+                <ShieldCheck className="text-emerald-600 shrink-0" size={20} />
                 <span className="text-sm">
                   To monitor usage patterns and prevent abuse of our systems.
                 </span>
@@ -156,7 +156,7 @@ export default function PrivacyPage() {
             href="/"
             className="inline-flex items-center gap-2 text-slate-500 hover:text-emerald-600 transition-colors text-sm font-medium"
           >
-            <ArrowLeft weight="duotone" size={16} />
+            <ArrowLeft size={16} />
             Back to Home
           </Link>
         </div>

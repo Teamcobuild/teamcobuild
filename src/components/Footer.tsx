@@ -1,195 +1,136 @@
 "use client";
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Instagram, ArrowRight, CheckCircle, } from "lucide-react";
-import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
+import React from "react";
+import { Twitter, Linkedin, Github, Instagram, Phone, Mail, Facebook } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-// Merge and normalize Tailwind class lists
-function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
-
 const SocialLink = ({ href, icon: Icon }: { href: string; icon: any }) => (
-  <motion.div
-    whileHover={{ y: -3 }}
+  <Link
+    href={href}
+    className="text-white/70 hover:text-white transition-colors block"
   >
-    <Link
-      href={href}
-      className="p-2 bg-white rounded-full text-slate-500 hover:text-primary hover:border-primary/30 transition-colors block"
-    >
-      <Icon size={18} />
-    </Link>
-  </motion.div>
+    <Icon size={18} />
+  </Link>
 );
 
 const FooterLink = ({ href, label }: { href: string; label: string }) => (
   <li>
     <Link
       href={href}
-      className="text-sm text-white hover:text-white/50 transition-colors inline-block py-1"
+      className="text-sm text-white/60 hover:text-white transition-colors inline-block py-1.5"
     >
       {label}
     </Link>
   </li>
 );
 
-// --- Main Footer Component ---
-
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-
-  const handleSubscribe = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
-
-    setStatus("loading");
-
-    try {
-      const response = await fetch("/api/newsletter", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
-
-      if (response.ok) {
-        setStatus("success");
-        setEmail("");
-        setTimeout(() => setStatus("idle"), 3000);
-      } else {
-        setStatus("error");
-      }
-    } catch (error) {
-      setStatus("error");
-    }
-  };
 
   return (
-    <footer className="w-full py-6  md:px-6 mt-12">
-      <div className="max-w-7xl mx-auto bg-[#1b1b1b] rounded-3xl p-8 md:p-12 lg:p-16 overflow-hidden relative">
-        {/* <div className="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-primary/10 rounded-full blur-3xl opacity-50 pointer-events-none" /> */}
+    <footer className="w-full bg-[#1b1b1b] text-white">
+      <div className="max-w-7xl mx-auto px-6 lg: pt-12 pb-8">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 relative z-10">
+        {/* Top Section: Contact & Socials (Wireframe Box) */}
+        <div className="relative w-full mb-16 py-8 flex items-center">
+          {/* Wireframe horizontal lines */}
+          <div className="absolute top-0 left-0 w-full h-px bg-white/20" />
+          <div className="absolute bottom-0 left-0 w-full h-px bg-white/20" />
 
-          {/* Brand & Newsletter column */}
-          <div className="lg:col-span-4 flex flex-col gap-6">
-            <Image
-              src="/logo-white.png"
-              alt="Teamcobuild Logo"
-              width={160}
-              height={28}
-            />
-            <p className="text-white text-sm leading-relaxed max-w-xs">
-              Building the future of local software solutions. Join our community to start building better together.
-            </p>
+          {/* Wireframe vertical lines (with overhang) */}
+          <div className="absolute -top-6 -bottom-6 left-6 md:left-12 w-px bg-white/20" />
+          <div className="absolute -top-6 -bottom-6 right-6 md:right-12 w-px bg-white/20" />
 
-            {/* Newsletter form
-            <form className="relative max-w-sm" onSubmit={handleSubscribe}>
-              <Envelope weight="duotone" className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
-
-              <input
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                disabled={status === "loading" || status === "success"}
-                className={cn(
-                  "w-full bg-white border rounded-full py-2.5 pl-10 pr-12 text-sm outline-none transition-all placeholder:text-slate-400",
-                  status === "error"
-                    ? "border-red-300 focus:ring-2 focus:ring-red-500/20"
-                    : "border-slate-200 focus:ring-2 focus:ring-primary/20 focus:border-primary"
-                )}
-              />
-
-              <button
-                type="submit"
-                disabled={status === "loading" || status === "success"}
-                className={cn(
-                  "absolute right-1.5 top-1/2 -translate-y-1/2 p-1.5 rounded-full transition-all flex items-center justify-center",
-                  status === "success"
-                    ? "bg-primary text-white cursor-default"
-                    : "bg-slate-900 text-white hover:bg-primary"
-                )}
-              >
-                {status === "loading" ? (
-                  <CircleNotch weight="duotone" size={14} className="animate-spin" />
-                ) : status === "success" ? (
-                  <CheckCircle weight="duotone" size={14} />
-                ) : (
-                  <ArrowRight weight="duotone" size={14} />
-                )}
-              </button>
-            </form> */}
-
-            {/* Error feedback
-            {status === "error" && (
-              <motion.p
-                initial={{ opacity: 0, y: -5 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="text-red-500 text-xs flex items-center gap-1 ml-2 -mt-4"
-              >
-                <WarningCircle weight="duotone" size={12} /> Failed to subscribe. Please try again.
-              </motion.p>
-            )} */}
-          </div>
-
-          <div className="hidden lg:block lg:col-span-1" />
-
-          <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-8">
-            {/* Links group 1 */}
-            <div className="flex flex-col gap-4">
-              <h4 className="font-semibold text-white/70 text-sm">Product</h4>
-              <ul className="flex flex-col gap-2">
-                <FooterLink href="/features" label="Features" />
-                <FooterLink href="/integrations" label="Integrations" />
-                <FooterLink href="/pricing" label="Pricing" />
-                <FooterLink href="/changelog" label="Changelog" />
-              </ul>
+          {/* Content container inside the wireframe */}
+          <div className="w-full px-12 md:px-20 flex flex-col md:flex-row justify-between items-center z-10 py-4 md:py-0">
+            {/* Left: Socials */}
+            <div className="flex flex-col md:flex-row items-center gap-3 md:gap-6 mb-10 md:mb-0 text-center md:text-left">
+              <h4 className="text-sm md:text-base font-semibold text-white tracking-wide md:mr-2">Find And Follow Us</h4>
+              <div className="flex items-center justify-center gap-5">
+                <SocialLink href="https://facebook.com" icon={Facebook} />
+                <SocialLink href="https://instagram.com" icon={Instagram} />
+                <SocialLink href="https://x.com" icon={Twitter} />
+                <SocialLink href="https://linkedin.com" icon={Linkedin} />
+              </div>
             </div>
 
-            {/* Links group 2 */}
-            <div className="flex flex-col gap-4">
-              <h4 className="font-semibold text-white/70 text-sm">Company</h4>
-              <ul className="flex flex-col gap-2">
-                <FooterLink href="/about" label="About" />
-                <FooterLink href="/careers" label="Careers" />
-                <FooterLink href="/certifications" label="Certifications" />
-                <FooterLink href="/blog" label="Blog" />
-                <FooterLink href="/contact" label="Contact" />
-              </ul>
-            </div>
-
-            {/* Links group 3 */}
-            <div className="flex flex-col gap-4">
-              <h4 className="font-semibold text-white/70 text-sm">Resources</h4>
-              <ul className="flex flex-col gap-2">
-                <FooterLink href="/community" label="Community" />
-                <FooterLink href="/helpcenter" label="Help Center" />
-                <FooterLink href="/termsofservice" label="Terms of Service" />
-                <FooterLink href="/privacyandpolicy" label="Privacy Policy" />
-              </ul>
+            {/* Right: Contacts */}
+            <div className="flex flex-col sm:flex-row items-center gap-10 md:gap-12">
+              <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4 text-center md:text-left">
+                <Phone size={28} className="text-[#84cc16] mb-1 md:mb-0" />
+                <div className="flex flex-col">
+                  <span className="text-sm text-white/70">Call us at</span>
+                  <span className="text-base font-medium text-white/90">+2348163059312</span>
+                </div>
+              </div>
+              <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4 text-center md:text-left">
+                <Mail size={28} className="text-[#84cc16] mb-1 md:mb-0" />
+                <div className="flex flex-col">
+                  <span className="text-sm text-white/70">Mail us at</span>
+                  <span className="text-base font-medium text-white/90">cobuildofficial@hotmail.com</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="h-px w-full bg-white/20 my-10" />
+        {/* Middle Section: Links */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+          <div className="flex flex-col gap-4">
+            <h4 className="font-semibold text-white text-base mb-2">Product</h4>
+            <ul className="flex flex-col gap-1">
+              {/* <FooterLink href="/features" label="Features" /> */}
+              <FooterLink href="/integrations" label="Integrations" />
+              <FooterLink href="/pricing" label="Pricing" />
+              {/* <FooterLink href="/changelog" label="Changelog" /> */}
+            </ul>
+          </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="text-sm text-white/60">
-            &copy; <span suppressHydrationWarning>{currentYear}</span> Team Cobuild. All rights reserved.
+          <div className="flex flex-col gap-4">
+            <h4 className="font-semibold text-white text-base mb-2">Company</h4>
+            <ul className="flex flex-col gap-1">
+              <FooterLink href="/about" label="About" />
+              <FooterLink href="/careers" label="Careers" />
+              {/* <FooterLink href="/certifications" label="Certifications" /> */}
+              <FooterLink href="/blog" label="Blog" />
+            </ul>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <h4 className="font-semibold text-white text-base mb-2">Programs</h4>
+            <ul className="flex flex-col gap-1">
+              {/* <FooterLink href="/programs/code-camp" label="Code Camp" /> */}
+              {/* <FooterLink href="/programs/fellowship" label="Fellowship" /> */}
+              {/* <FooterLink href="/programs/dyb" label="DYB by Teamcobuild" /> */}
+              {/* <FooterLink href="/programs/digipm" label="DigiPM" /> */}
+            </ul>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <h4 className="font-semibold text-white text-base mb-2">Support Center</h4>
+            <ul className="flex flex-col gap-1">
+              <FooterLink href="/contact" label="Contact Us" />
+              <FooterLink href="/ask" label="Ask Support" />
+              {/* <FooterLink href="/community" label="Community" /> */}
+              {/* <FooterLink href="/startup-school" label="Startup School" /> */}
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Section: Logo & Copyright */}
+        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10">
+          <Image
+            src="/logo-white.png"
+            alt="Teamcobuild Logo"
+            width={120}
+            height={21}
+            className="mb-4 md:mb-0 opacity-90"
+          />
+          <p className="text-xs text-white/50 text-center md:text-right">
+            Copyright &copy; <span suppressHydrationWarning>{currentYear}</span> Team Cobuild | Powered by Teamcobuild
           </p>
-
-          <div className="flex items-center gap-3">
-            {/* <SocialLink href="https://x.com/Teamcobuild" icon={Twitter} />
-            <SocialLink href="https://www.linkedin.com/company/team-cobuild" icon={Linkedin} />
-            <SocialLink href="https://github.com/CobuildDev" icon={Github} />
-            <SocialLink href="https://www.instagram.com/team.cobuild/" icon={Instagram} /> */}
-          </div>
         </div>
+
       </div>
     </footer>
   );
