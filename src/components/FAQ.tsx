@@ -5,24 +5,24 @@ import { Plus, Minus } from "lucide-react";
 
 const faqs = [
   {
-    q: "What services does Teamcobuild offer?",
-    a: "We offer end-to-end technology solutions including custom web development, mobile app development (iOS & Android), UI/UX design, cloud infrastructure, and digital marketing. We handle the full software development lifecycle from concept to deployment.",
+    q: "What is Teamcobuild's core mission?",
+    a: "We are a community-centered software startup based in Aba, Nigeria. Our core mission is to build practical digital solutions that solve local problems and empower communities through accessible technology.",
   },
   {
-    q: "How much does a typical project cost?",
-    a: "Project costs vary based on scope, complexity, and timeline. We pride ourselves on delivering affordable, scalable solutions for businesses of all sizes. Reach out via our contact page for a free, no-obligation quote tailored to your needs.",
+    q: "How does Teamcobuild empower the local community?",
+    a: "We believe in the power of homegrown talent. We focus on hiring, training, and collaborating with local tech enthusiasts and businesses in Aba and across Nigeria, ensuring the technology we build directly benefits the people around us.",
   },
   {
-    q: "How long does it take to build a product?",
-    a: "Timelines depend on the project type. A simple MVP can be ready in a few weeks, while a full-scale web or mobile app typically takes a few months. We provide a clear roadmap and regular progress updates throughout the build.",
+    q: "What kind of solutions do you build?",
+    a: "We build everything from custom web and mobile applications to full-scale digital infrastructure. Our priority is always on practical, scalable solutions that address real-world challenges faced by startups, SMEs, and everyday users.",
   },
   {
-    q: "Do you work with startups and small businesses?",
-    a: "Absolutely. We believe every business deserves a strong tech foundation regardless of size or budget. We've partnered with early-stage startups, growing SMEs, and established enterprises across multiple industries.",
+    q: "Do you only work with clients in Aba?",
+    a: "Not at all! While our roots and heart are firmly planted in Aba, our digital solutions serve clients across Nigeria and globally. We pride ourselves on delivering world-class technology from our local hub.",
   },
   {
-    q: "Can I get ongoing support after launch?",
-    a: "Yes. We offer post-launch maintenance, performance monitoring, feature updates, and dedicated support plans. We build long-term relationships with our clients to ensure their products keep growing.",
+    q: "How can I get involved or partner with you?",
+    a: "We are always eager to collaborate with passionate builders, innovators, and businesses. You can reach out to us via our contact page to discuss project ideas, partnerships, or joining our community initiatives.",
   },
 ];
 
@@ -80,7 +80,7 @@ export default function FAQ() {
                   className={`px-6 transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? "max-h-64 pb-6 opacity-100" : "max-h-0 pb-0 opacity-0"
                     }`}
                 >
-                  <p className={`text-sm md:text-base leading-relaxed ${isOpen ? "text-white/90" : "text-slate-600"}`}>
+                  <p className={`text-sm md:text-base leading-relaxed ${isOpen ? "text-white" : "text-slate-600"}`}>
                     {faq.a}
                   </p>
                 </div>

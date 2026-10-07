@@ -7,26 +7,45 @@ import { Code, Palette, LineChart, ArrowRight, CheckCircle, Layers, Smartphone, 
 import Link from "next/link";
 
 // --- Sub-Component: Service Card ---
-const ServiceCard = ({ icon: Icon, title, description, tags }: any) => (
+const ServiceCard = ({ icon: Icon, title, category, image, description, tags }: any) => (
   <motion.div
     whileHover={{ y: -5 }}
-    className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-xl hover:shadow-slate-200/50 hover:border-emerald-200 transition-all duration-300 h-full flex flex-col"
+    className="group bg-white rounded-3xl overflow-hidden transition-all duration-300 flex flex-col h-full"
   >
-    <div className="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center text-slate-700 mb-6 border border-slate-100 group-hover:bg-emerald-50 group-hover:text-emerald-600 group-hover:border-emerald-100 transition-colors">
-      <Icon size={24} />
+    {/* Card Header / Image Area */}
+    <div className="h-48 w-full relative p-6 flex flex-col justify-between overflow-hidden bg-slate-100">
+      <img src={image} alt={title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+      <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-transparent transition-colors duration-500"></div>
+
+      <div className="flex justify-between items-start relative z-10">
+        <div className="bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs font-bold text-slate-900 shadow-sm flex items-center gap-1.5">
+          <Icon size={14} className="text-primary" />
+          {category}
+        </div>
+      </div>
     </div>
 
-    <h3 className="text-xl font-bold text-slate-900 mb-3">{title}</h3>
-    <p className="text-slate-500 leading-relaxed mb-6 flex-grow">
-      {description}
-    </p>
+    {/* Card Body */}
+    <div className="p-6 flex flex-col flex-grow">
+      <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-primary transition-colors">
+        {title}
+      </h3>
 
-    <div className="flex flex-wrap gap-2 mt-auto">
-      {tags.map((tag: string) => (
-        <span key={tag} className="px-2.5 py-1 rounded-md bg-slate-50 text-slate-500 text-xs font-medium border border-slate-100">
-          {tag}
-        </span>
-      ))}
+      <p className="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
+        {description}
+      </p>
+
+      {/* Tech/Tags Stack */}
+      <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-slate-100">
+        {tags.map((tag: string) => (
+          <span
+            key={tag}
+            className="text-xs font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-md"
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
     </div>
   </motion.div>
 );
@@ -34,7 +53,7 @@ const ServiceCard = ({ icon: Icon, title, description, tags }: any) => (
 // --- Sub-Component: Process Step ---
 const ProcessStep = ({ number, title, text }: any) => (
   <div className="flex gap-4 relative">
-    {/* Line connector (hide for last item if you want, but CSS works too) */}
+    {/* Line connector */}
     <div className="flex flex-col items-center">
       <div className="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center text-sm font-bold shrink-0 z-10 ring-4 ring-white">
         {number}
@@ -52,7 +71,7 @@ const ProcessStep = ({ number, title, text }: any) => (
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen bg-white selection:bg-emerald-100 selection:text-emerald-900 flex flex-col">
+    <div className="min-h-screen bg-white selection:bg-primary/20 selection:text-primary flex flex-col">
       <Navbar />
 
       <main className="flex-grow pt-32 px-4 md:px-6">
@@ -63,13 +82,8 @@ export default function ServicesPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-medium mb-6">
-              <Layers size={12} className="text-emerald-600" />
-              <span>Engineering Partnerships</span>
-            </div>
             <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-slate-900 mb-6">
-              Extend your team with <br className="hidden md:block" />
-              <span className="text-emerald-600">our capabilities.</span>
+              Extend Your Team With Our Capabilities.
             </h1>
             <p className="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
               We are primarily a product company building our own ecosystem. However, we occasionally partner with select businesses to build high-impact digital products using our internal standards.
@@ -83,21 +97,27 @@ export default function ServicesPage() {
 
             <ServiceCard
               icon={Code}
+              category="Engineering"
               title="Software Development"
+              image="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"
               description="We build robust web and mobile applications. We don't just ship code; we ship scalable, secure, and maintainable systems."
               tags={["Web Apps", "Mobile Dev", "APIs", "SaaS MVPs"]}
             />
 
             <ServiceCard
               icon={Palette}
+              category="Design"
               title="Product Design & Branding"
+              image="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80"
               description="Functional aesthetics. We design interfaces that are intuitive for local users and craft brand identities that stand out."
               tags={["UI/UX Design", "Brand Identity", "Design Systems"]}
             />
 
             <ServiceCard
               icon={LineChart}
+              category="Consulting"
               title="Technical Strategy"
+              image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
               description="Not sure what to build? We help businesses analyze their processes and architect the right digital solutions to solve problems."
               tags={["Consultation", "Tech Audit", "Digitization"]}
             />
@@ -105,78 +125,73 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* 3. The "Why Us" Section (Split Layout) */}
-        <section className="max-w-6xl mx-auto mb-24">
-          <div className="bg-slate-50 rounded-[40px] p-8 md:p-16 border border-slate-100">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+        {/* 3. The "Why Us" Section (Modern Bento Grid) */}
+        <section className="max-w-7xl mx-auto mb-32">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 mb-6">
+              The Teamcobuild Standard.
+            </h2>
+            <p className="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
+              Most agencies outsource their work or cut corners. We don't. When you work with us, your product is built by the same engineers building our core startups.
+            </p>
+          </div>
 
-              {/* Left: The Promise */}
-              <div>
-                <h2 className="text-3xl font-bold text-slate-900 mb-6">
-                  The Teamcobuild Standard.
-                </h2>
-                <p className="text-slate-500 mb-8 leading-relaxed">
-                  Most agencies outsource their work or cut corners. We don't. When you work with us, your product is built by the same engineers building our core startups.
-                </p>
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[minmax(280px,auto)]">
 
-                <ul className="space-y-4">
-                  {[
-                    "Code ownership remains with you",
-                    "Accessibility and Performance first",
-                    "Transparent, weekly sprint updates",
-                    "Post-launch support options"
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-center gap-3 text-slate-700 font-medium">
-                      <CheckCircle size={20} className="text-emerald-500 shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+            {/* Main Promise - Dark Card */}
+            <div className="md:col-span-8 bg-slate-900 rounded-[2.5rem] p-10 md:p-14 relative overflow-hidden flex flex-col justify-between group">
+              <div className="relative z-10 mb-12">
+                <h3 className="text-3xl md:text-4xl font-bold text-white leading-tight max-w-lg">
+                  Quality without compromise.<br /> No shortcuts.
+                </h3>
               </div>
 
-              {/* Right: The Process (Visual) */}
-              <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-100 rounded-full blur-[60px] opacity-50 pointer-events-none" />
-
-                <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-6">How we work</h3>
-
-                <div className="flex flex-col">
-                  <ProcessStep
-                    number="1"
-                    title="Discovery"
-                    text="We deep dive into your business logic to understand exactly what needs to be solved."
-                  />
-                  <ProcessStep
-                    number="2"
-                    title="Build & Iterate"
-                    text="Rapid development cycles. You see progress every week, not just at the end."
-                  />
-                  <ProcessStep
-                    number="3"
-                    title="Handover"
-                    text="We deploy your product and hand over clean, documented code and assets."
-                  />
-                </div>
+              <div className="relative z-10 grid sm:grid-cols-2 gap-6">
+                {[
+                  "Code ownership remains with you",
+                  "Accessibility and Performance first",
+                  "Transparent, weekly sprint updates",
+                  "Post-launch support options"
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-4">
+                    <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center shrink-0 mt-0.5">
+                      <CheckCircle size={16} className="text-primary" />
+                    </div>
+                    <span className="text-slate-300 font-medium leading-relaxed">{item}</span>
+                  </div>
+                ))}
               </div>
-
             </div>
+
+            {/* Process Step 1 */}
+            <div className="md:col-span-4 bg-primary/10 border border-primary/20 rounded-[2.5rem] p-10 flex flex-col justify-center relative overflow-hidden group hover:bg-primary/20 transition-all duration-300">
+              <div className="text-8xl font-black text-primary/10 absolute -top-6 -right-6 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500">1</div>
+              <h4 className="text-2xl font-bold text-slate-900 mb-4 relative z-10">Discovery</h4>
+              <p className="text-slate-700 relative z-10 leading-relaxed">
+                We deep dive into your business logic to understand exactly what needs to be solved.
+              </p>
+            </div>
+
+            {/* Process Step 2 */}
+            <div className="md:col-span-6 bg-slate-50 border border-slate-100 rounded-[2.5rem] p-10 flex flex-col justify-center relative overflow-hidden group  transition-all duration-300 hover:border-slate-200">
+              <div className="text-8xl font-black text-slate-200/50 absolute -top-6 -right-6 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500">2</div>
+              <h4 className="text-2xl font-bold text-slate-900 mb-4 relative z-10">Build & Iterate</h4>
+              <p className="text-slate-500 relative z-10 max-w-md leading-relaxed">
+                Rapid development cycles. You see progress every single week, not just at the end of the project. We adapt on the fly.
+              </p>
+            </div>
+
+            {/* Process Step 3 */}
+            <div className="md:col-span-6 bg-slate-50 border border-slate-100 rounded-[2.5rem] p-10 flex flex-col justify-center relative overflow-hidden group  transition-all duration-300 hover:border-slate-200">
+              <div className="text-8xl font-black text-slate-200/50 absolute -top-6 -right-6 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500">3</div>
+              <h4 className="text-2xl font-bold text-slate-900 mb-4 relative z-10">Handover & Launch</h4>
+              <p className="text-slate-500 relative z-10 max-w-md leading-relaxed">
+                We deploy your product seamlessly and hand over perfectly clean, documented code and assets.
+              </p>
+            </div>
+
           </div>
         </section>
-
-        {/* 4. Soft CTA */}
-        <section className="max-w-3xl mx-auto text-center pb-20 px-4">
-          <h2 className="text-2xl font-bold text-slate-900 mb-4">
-            Have a project in mind?
-          </h2>
-          <p className="text-slate-500 mb-8">
-            We take on a limited number of client projects per quarter to ensure quality.
-          </p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-slate-900 text-white px-8 py-3.5 rounded-full font-medium hover:bg-emerald-600 transition-colors">
-            Start a Conversation
-            <ArrowRight size={18} />
-          </Link>
-        </section>
-
       </main>
 
       <Footer />

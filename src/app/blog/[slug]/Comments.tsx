@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { MessageCircle, User, Clock, Loader2 } from "lucide-react";
+import { User, Clock, Loader2, MessageSquare } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface CommentNode {
@@ -81,20 +81,21 @@ export default function Comments({ comments, postId }: CommentsProps) {
   };
 
   return (
-    <div className="mt-20 pt-10 border-t border-slate-200">
-      <div className="flex items-center gap-3 mb-8 text-slate-800">
-        <h2 className="text-2xl font-bold tracking-tight">Comments</h2>
+    <div className="mt-16 pt-16 border-t border-slate-100">
+      <div className="flex items-center gap-3 mb-10 text-slate-900">
+        <MessageSquare size={24} className="text-primary" />
+        <h2 className="text-3xl font-bold tracking-tight">Discussion ({comments?.length || 0})</h2>
       </div>
 
-      <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-8 mb-12">
-        <h3 className="text-lg font-bold text-slate-800 mb-6">Leave a Reply</h3>
+      <div className="bg-slate-50/50 border border-slate-100 rounded-[2rem] p-8 md:p-10 mb-16 shadow-sm">
+        <h3 className="text-xl font-bold text-slate-900 mb-8">Leave a Reply</h3>
         {isSuccess ? (
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-emerald-50 border border-emerald-200 text-emerald-700 px-4 py-3 rounded-xl mb-6 font-medium text-sm flex items-center gap-2"
+            className="bg-primary/10 border border-primary/20 text-primary px-5 py-4 rounded-2xl mb-8 font-semibold text-sm flex items-center gap-2"
           >
-            Comment submitted for moderation.
+            Thank you! Your comment has been submitted and is pending moderation.
           </motion.div>
         ) : null}
 
@@ -102,85 +103,90 @@ export default function Comments({ comments, postId }: CommentsProps) {
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl mb-6 font-medium text-sm flex items-center gap-2"
+            className="bg-red-50 border border-red-200 text-red-700 px-5 py-4 rounded-2xl mb-8 font-semibold text-sm flex items-center gap-2"
           >
             {submitError}
           </motion.div>
         ) : null}
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-slate-600 mb-1">Name</label>
+              <label htmlFor="name" className="block text-sm font-bold text-slate-700 mb-2">Name</label>
               <input
                 type="text"
                 id="name"
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-4 py-2 bg-white border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                className="w-full px-5 py-3.5 bg-white border border-slate-200 rounded-2xl outline-none focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 shadow-sm"
+                placeholder="John Doe"
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-slate-600 mb-1">Email</label>
+              <label htmlFor="email" className="block text-sm font-bold text-slate-700 mb-2">Email</label>
               <input
                 type="email"
                 id="email"
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full px-4 py-2 bg-white border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                className="w-full px-5 py-3.5 bg-white border border-slate-200 rounded-2xl outline-none focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 shadow-sm"
+                placeholder="john@example.com"
               />
             </div>
           </div>
           <div>
-            <label htmlFor="comment" className="block text-sm font-medium text-slate-600 mb-1">Comment</label>
+            <label htmlFor="comment" className="block text-sm font-bold text-slate-700 mb-2">Comment</label>
             <textarea
               id="comment"
               required
-              rows={4}
+              rows={5}
               value={formData.comment}
               onChange={(e) => setFormData({ ...formData, comment: e.target.value })}
-              className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all resize-y"
+              className="w-full px-5 py-4 bg-white border border-slate-200 rounded-2xl outline-none focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all resize-y font-medium text-slate-700 shadow-sm"
+              placeholder="What are your thoughts?"
             />
           </div>
           <button
             type="submit"
             disabled={isSubmitting}
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-xl transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+            className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary hover:bg-primary/90 text-white font-bold rounded-2xl transition-all shadow-lg hover:shadow-primary/30 disabled:opacity-70 disabled:cursor-not-allowed w-full md:w-auto"
           >
             {isSubmitting ? (
-              <Loader2 size={18} className="animate-spin" />
+              <Loader2 size={20} className="animate-spin" />
             ) : null}
-            <span>Submit Comment</span>
+            <span>Post Comment</span>
           </button>
         </form>
       </div>
 
-      <div className="space-y-6">
+      <div className="space-y-8">
         {comments && comments.length > 0 ? (
           comments.map((comment) => (
-            <div key={comment.id} className="p-6 bg-white border border-slate-200 rounded-2xl relative">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center text-slate-400">
-                  <User size={20} />
+            <div key={comment.id} className="p-8 bg-white border border-slate-100 rounded-[2rem] shadow-sm relative group hover:shadow-md transition-shadow">
+              <div className="flex items-center gap-4 mb-5">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold text-lg">
+                  {comment.author?.node?.name ? comment.author.node.name.charAt(0).toUpperCase() : <User size={20} />}
                 </div>
                 <div>
-                  <div className="font-bold text-slate-800 text-sm">{comment.author?.node?.name || "Anonymous"}</div>
-                  <div className="text-xs font-mono text-slate-500 flex items-center gap-1 mt-0.5">
+                  <div className="font-bold text-slate-900 text-base">{comment.author?.node?.name || "Anonymous"}</div>
+                  <div className="text-xs font-semibold text-slate-400 flex items-center gap-1.5 mt-1">
                     <Clock size={12} />
                     {new Date(comment.date).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}
                   </div>
                 </div>
               </div>
               <div
-                className="prose prose-sm prose-slate max-w-none text-slate-600 leading-relaxed"
+                className="prose prose-slate max-w-none text-slate-600 leading-relaxed font-medium text-base"
                 dangerouslySetInnerHTML={{ __html: comment.content }}
               />
             </div>
           ))
         ) : (
-          <p className="text-slate-500 text-sm">No comments yet. Be the first to start the discussion!</p>
+          <div className="text-center py-12 bg-slate-50 border border-slate-100 border-dashed rounded-[2rem]">
+            <p className="text-slate-500 font-medium">No comments yet. Be the first to start the discussion!</p>
+          </div>
         )}
       </div>
     </div>

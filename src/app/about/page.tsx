@@ -3,7 +3,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { motion } from "framer-motion";
 import { Target, Users, Zap, MapPin, ArrowRight, Code, Heart } from "lucide-react";
-import TeamSlider from "../../components/Teamslider";
+// import TeamSlider from "../../components/Teamslider";
 
 
 // --- Sub-Component: Stat Item ---
@@ -108,7 +108,7 @@ export default function AboutPage() {
               A small, focused team of contributors turning caffeine into code and chaos into structure.
             </p>
           </div>
-          <TeamSlider />
+          {/* <TeamSlider /> */}
         </section>
 
         {/* 4. Stats / Roadmap (Simple Horizontal Strip) */}
@@ -118,21 +118,6 @@ export default function AboutPage() {
             <StatItem value="100%" label="Product Focused" />
             <StatItem value="3+" label="Active MVPs" />
             <StatItem value="∞" label="Possibilities" />
-          </div>
-        </section>
-
-        {/* 5. Bottom CTA */}
-        <section className="max-w-4xl mx-auto text-center px-4">
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">Ready to see what we're building?</h2>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="flex items-center gap-2 bg-slate-900 text-white px-8 py-3.5 rounded-full font-medium hover:bg-primary transition-colors">
-              <Zap size={18} />
-              View Projects
-            </button>
-            <button className="flex items-center gap-2 bg-white text-slate-600 border border-slate-200 px-8 py-3.5 rounded-full font-medium hover:bg-slate-50 transition-colors">
-              Contact Us
-              <ArrowRight size={18} />
-            </button>
           </div>
         </section>
 

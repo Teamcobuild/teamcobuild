@@ -41,7 +41,7 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
         className={cn(
-          "fixed top-4 inset-x-0 mx-auto z-50 max-w-5xl px-4 md:px-6 transition-all duration-300",
+          "fixed top-4 inset-x-0 mx-auto z-50 max-w-7xl px-4 md:px-6 transition-all duration-300",
           isOpen ? "h-auto" : "h-auto"
         )}
       >
