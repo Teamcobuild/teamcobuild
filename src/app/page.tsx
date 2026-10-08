@@ -10,17 +10,15 @@ import { Users, Code, Globe, Cpu, Database, Layout } from "lucide-react";
 import FAQ from "@/components/FAQ";
 
 // --- Sub-Component: Value Card ---
-const ValueCard = ({ icon: Icon, title, description, delay }: any) => (
+const ValueCard = ({ gifSrc, title, description, delay }: any) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.5, delay }}
-    className="p-6 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300"
+    className="p-6 rounded-2xl bg-white border border-slate-100 hover:border-primary/20 transition-all duration-300 flex flex-col"
   >
-    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 text-primary">
-      <Icon size={24} />
-    </div>
+    <img src={gifSrc} alt={title} className="w-full h-48 object-contain mb-6 mix-blend-multiply" />
     <h3 className="text-xl font-bold text-slate-900 mb-2">{title}</h3>
     <p className="text-slate-500 leading-relaxed">{description}</p>
   </motion.div>
@@ -46,7 +44,7 @@ export default function Home() {
         {/* 2. Hero Section */}
         <Hero />
 
-
+        <Partners />
         {/* 4. "Why CoBuild?" Values Section */}
         <section className="py-24 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
@@ -61,19 +59,19 @@ export default function Home() {
 
             <div className="grid md:grid-cols-3 gap-6">
               <ValueCard
-                icon={Globe}
+                gifSrc="/gifs/global.gif"
                 title="Local Roots, Global Standard"
                 description="We build solutions tailored for the Nigerian market but engineered to the quality standards of Silicon Valley."
                 delay={0.1}
               />
               <ValueCard
-                icon={Users}
+                gifSrc="/gifs/community.gif"
                 title="Community First"
                 description="We believe in open knowledge. We grow by sharing what we learn, mentoring new devs, and building in public."
                 delay={0.2}
               />
               <ValueCard
-                icon={Cpu}
+                gifSrc="/gifs/engineering.gif"
                 title="Engineering Excellence"
                 description="No shortcuts. We focus on performance, accessibility, and clean architecture in every MVP we deploy."
                 delay={0.3}
@@ -81,7 +79,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <Partners />
+
         <FAQ />
 
       </main>

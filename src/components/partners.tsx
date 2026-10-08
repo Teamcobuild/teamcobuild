@@ -15,9 +15,9 @@ export default function Partners() {
   return (
     <section className="w-full py-16 bg-white">
       <div className="max-w-7xl mx-auto px-6 text-center">
-        <h2 className="font-semibold text-3xl text-black mb-10">
+        {/* <h2 className="font-semibold text-3xl text-black mb-10">
           Building With The Best
-        </h2>
+        </h2> */}
 
         {/* Static Grid Container */}
         <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-10 md:gap-x-20">
