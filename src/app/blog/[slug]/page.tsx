@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
-import { ArrowLeft, ChevronRight, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { ArrowLeft, CaretRight, FacebookLogo, XLogo, InstagramLogo, LinkedinLogo } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import Comments from "./Comments";
 
@@ -78,7 +78,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-sm text-slate-500 mb-8 font-medium">
             <Link href="/blog" className="hover:text-primary transition-colors">Blog</Link>
-            <ChevronRight size={14} />
+            <CaretRight size={14} weight="fill" />
             <span className="text-primary truncate max-w-[200px] md:max-w-md">{post.title}</span>
           </div>
 
@@ -90,10 +90,10 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
             <div className="flex items-center gap-3 text-slate-500 text-sm font-medium">
               <div className="w-10 h-10 rounded-full bg-slate-200 overflow-hidden shrink-0 border-2 border-slate-100">
-                <img 
-                  src={post.author?.node?.avatar?.url || "https://ui-avatars.com/api/?name=Team+Cobuild&background=22c55e&color=fff"} 
-                  alt={post.author?.node?.name || "Author"} 
-                  className="w-full h-full object-cover" 
+                <img
+                  src={post.author?.node?.avatar?.url || "https://ui-avatars.com/api/?name=Team+Cobuild&background=22c55e&color=fff"}
+                  alt={post.author?.node?.name || "Author"}
+                  className="w-full h-full object-cover"
                 />
               </div>
               <div>
@@ -117,7 +117,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
           {/* Main Layout Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-            
+
             {/* Left Content Column */}
             <article className="lg:col-span-8 w-full">
               <div
@@ -134,7 +134,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
             {/* Right Sidebar Column */}
             <aside className="lg:col-span-4 w-full space-y-12 sticky top-32">
-              
+
               {/* Latest Post */}
               <div>
                 <h3 className="text-xl font-bold text-slate-900 mb-6">Latest Post</h3>
@@ -185,7 +185,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
               </div>
 
               {/* Popular Tags */}
-              <div>
+              {/* <div>
                 <h3 className="text-xl font-bold text-slate-900 mb-6">Popular Tags</h3>
                 <div className="flex flex-col gap-4 text-sm text-slate-500 font-semibold">
                   <span className="hover:text-primary cursor-pointer transition-colors block">#FintechTrends</span>
@@ -198,16 +198,16 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
                   <hr className="border-slate-100" />
                   <span className="hover:text-primary cursor-pointer transition-colors block">#SecureTransactions</span>
                 </div>
-              </div>
+              </div> */}
 
               {/* Social Media */}
               <div>
                 <h3 className="text-xl font-bold text-slate-900 mb-6">Social Media</h3>
                 <div className="flex gap-3">
-                  <a href="#" className="w-10 h-10 rounded-full bg-[#1877F2] flex items-center justify-center text-white hover:opacity-90 transition-opacity"><Facebook size={18}/></a>
-                  <a href="#" className="w-10 h-10 rounded-full bg-[#E4405F] flex items-center justify-center text-white hover:opacity-90 transition-opacity"><Instagram size={18}/></a>
-                  <a href="#" className="w-10 h-10 rounded-full bg-[#1DA1F2] flex items-center justify-center text-white hover:opacity-90 transition-opacity"><Twitter size={18}/></a>
-                  <a href="#" className="w-10 h-10 rounded-full bg-[#0A66C2] flex items-center justify-center text-white hover:opacity-90 transition-opacity"><Linkedin size={18}/></a>
+                  <a href="#" className="w-10 h-10 rounded-full bg-[#1877F2] flex items-center justify-center text-white hover:opacity-90 transition-opacity"><FacebookLogo size={18} weight="fill" /></a>
+                  <a href="#" className="w-10 h-10 rounded-full bg-[#E4405F] flex items-center justify-center text-white hover:opacity-90 transition-opacity"><InstagramLogo size={18} weight="fill" /></a>
+                  <a href="#" className="w-10 h-10 rounded-full bg-[#1DA1F2] flex items-center justify-center text-white hover:opacity-90 transition-opacity"><XLogo size={18} weight="fill" /></a>
+                  <a href="#" className="w-10 h-10 rounded-full bg-[#0A66C2] flex items-center justify-center text-white hover:opacity-90 transition-opacity"><LinkedinLogo size={18} weight="fill" /></a>
                 </div>
               </div>
 

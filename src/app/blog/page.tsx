@@ -1,8 +1,9 @@
+// "use client"
 import React from "react";
 import Navbar from "../../components/Navbar";
 import { getAllPosts } from "@/lib/wordpress";
 import Footer from "../../components/Footer";
-import { PenTool, BookOpen, ArrowRight } from "lucide-react";
+import { PenNib, BookOpen, ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 
 async function getPosts() {
@@ -55,16 +56,16 @@ export default async function BlogPage() {
       <Navbar />
 
       <main className="grow flex flex-col items-center pt-32 pb-20 px-4 relative overflow-hidden">
-        {/* Background Grid */}
+        {/* Background Grid
         <div className="fixed inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px]" />
-        </div>
+        </div> */}
 
         {!hasPosts ? (
           /* COMING SOON STATE (Your Original UI) */
           <div className="w-full max-w-2xl bg-white border border-slate-200 rounded-3xl p-8 md:p-16 text-center relative shadow-sm">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-600 text-xs font-medium mb-8">
-              <PenTool size={12} className="text-primary" />
+              <PenNib size={12} className="text-primary" weight="fill" />
               <span>Editorial in Progress</span>
             </div>
             <h1 className="text-3xl tracking-tighter md:text-5xl font-bold text-slate-900 mb-4">Words are loading...</h1>
@@ -91,7 +92,7 @@ export default async function BlogPage() {
                       alt={post.title}
                     />
                   </div>
-                  
+
                   {/* Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"></div>
 
@@ -110,10 +111,10 @@ export default async function BlogPage() {
                       {/* Author & Date */}
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-full bg-slate-200 overflow-hidden border-2 border-white/20">
-                          <img 
-                            src={post.author?.node?.avatar?.url || "https://ui-avatars.com/api/?name=Team+Cobuild&background=22c55e&color=fff"} 
-                            alt={post.author?.node?.name || "Author"} 
-                            className="w-full h-full object-cover" 
+                          <img
+                            src={post.author?.node?.avatar?.url || "https://ui-avatars.com/api/?name=Team+Cobuild&background=22c55e&color=fff"}
+                            alt={post.author?.node?.name || "Author"}
+                            className="w-full h-full object-cover"
                           />
                         </div>
                         <div className="text-sm font-medium text-white/90">

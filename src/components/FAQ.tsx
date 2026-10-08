@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Plus, Minus } from "lucide-react";
+import { Plus, Minus } from "@phosphor-icons/react";
 
 const faqs = [
   {
@@ -69,8 +69,8 @@ export default function FAQ() {
                   </span>
                   <span className={`flex-shrink-0 transition-transform duration-300 ${isOpen ? "text-white" : "text-slate-400"}`}>
                     {isOpen
-                      ? <Minus size={20} />
-                      : <Plus size={20} />
+                      ? <Minus size={20} weight="fill" />
+                      : <Plus size={20} weight="fill" />
                     }
                   </span>
                 </button>

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { User, Clock, Loader2, MessageSquare } from "lucide-react";
+import { User, Clock, SpinnerGap, ChatTeardrop } from "@phosphor-icons/react";
 import { motion } from "framer-motion";
 
 interface CommentNode {
@@ -83,11 +83,11 @@ export default function Comments({ comments, postId }: CommentsProps) {
   return (
     <div className="mt-16 pt-16 border-t border-slate-100">
       <div className="flex items-center gap-3 mb-10 text-slate-900">
-        <MessageSquare size={24} className="text-primary" />
+        {/* <ChatTeardrop size={24} className="text-primary" weight="fill" /> */}
         <h2 className="text-3xl font-bold tracking-tight">Discussion ({comments?.length || 0})</h2>
       </div>
 
-      <div className="bg-slate-50/50 border border-slate-100 rounded-[2rem] p-8 md:p-10 mb-16 shadow-sm">
+      <div className="bg-slate-50/50 border border-slate-100 rounded-[2rem] p-8 md:p-10 mb-16">
         <h3 className="text-xl font-bold text-slate-900 mb-8">Leave a Reply</h3>
         {isSuccess ? (
           <motion.div
@@ -119,7 +119,7 @@ export default function Comments({ comments, postId }: CommentsProps) {
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-5 py-3.5 bg-white border border-slate-200 rounded-2xl outline-none focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 shadow-sm"
+                className="w-full px-5 py-3.5 bg-white border border-slate-200 rounded-2xl outline-none focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700"
                 placeholder="John Doe"
               />
             </div>
@@ -131,7 +131,7 @@ export default function Comments({ comments, postId }: CommentsProps) {
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full px-5 py-3.5 bg-white border border-slate-200 rounded-2xl outline-none focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 shadow-sm"
+                className="w-full px-5 py-3.5 bg-white border border-slate-200 rounded-2xl outline-none focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700"
                 placeholder="john@example.com"
               />
             </div>
@@ -144,17 +144,17 @@ export default function Comments({ comments, postId }: CommentsProps) {
               rows={5}
               value={formData.comment}
               onChange={(e) => setFormData({ ...formData, comment: e.target.value })}
-              className="w-full px-5 py-4 bg-white border border-slate-200 rounded-2xl outline-none focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all resize-y font-medium text-slate-700 shadow-sm"
+              className="w-full px-5 py-4 bg-white border border-slate-200 rounded-2xl outline-none focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all resize-y font-medium text-slate-700"
               placeholder="What are your thoughts?"
             />
           </div>
           <button
             type="submit"
             disabled={isSubmitting}
-            className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary hover:bg-primary/90 text-white font-bold rounded-2xl transition-all shadow-lg hover:shadow-primary/30 disabled:opacity-70 disabled:cursor-not-allowed w-full md:w-auto"
+            className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary hover:bg-primary/90 text-white font-bold rounded-2xl transition-all disabled:opacity-70 disabled:cursor-not-allowed w-full md:w-auto"
           >
             {isSubmitting ? (
-              <Loader2 size={20} className="animate-spin" />
+              <SpinnerGap size={20} className="animate-spin" />
             ) : null}
             <span>Post Comment</span>
           </button>
@@ -164,7 +164,7 @@ export default function Comments({ comments, postId }: CommentsProps) {
       <div className="space-y-8">
         {comments && comments.length > 0 ? (
           comments.map((comment) => (
-            <div key={comment.id} className="p-8 bg-white border border-slate-100 rounded-[2rem] shadow-sm relative group hover:shadow-md transition-shadow">
+            <div key={comment.id} className="p-8 bg-white border border-slate-100 rounded-[2rem] relative group">
               <div className="flex items-center gap-4 mb-5">
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold text-lg">
                   {comment.author?.node?.name ? comment.author.node.name.charAt(0).toUpperCase() : <User size={20} />}

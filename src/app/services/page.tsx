@@ -3,7 +3,7 @@ import React from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { motion } from "framer-motion";
-import { Code, Palette, LineChart, ArrowRight, CheckCircle, Layers, Smartphone, Globe } from "lucide-react";
+import { Code, Palette, ChartLine, ArrowRight, CheckCircle, Stack, DeviceMobile, Globe } from "@phosphor-icons/react";
 import Link from "next/link";
 
 // --- Sub-Component: Service Card ---
@@ -97,7 +97,7 @@ export default function ServicesPage() {
 
             <ServiceCard
               icon={Code}
-              category="Engineering"
+              // category="Engineering"
               title="Software Development"
               image="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"
               description="We build robust web and mobile applications. We don't just ship code; we ship scalable, secure, and maintainable systems."
@@ -106,7 +106,7 @@ export default function ServicesPage() {
 
             <ServiceCard
               icon={Palette}
-              category="Design"
+              // category="Design"
               title="Product Design & Branding"
               image="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80"
               description="Functional aesthetics. We design interfaces that are intuitive for local users and craft brand identities that stand out."
@@ -114,8 +114,8 @@ export default function ServicesPage() {
             />
 
             <ServiceCard
-              icon={LineChart}
-              category="Consulting"
+              icon={ChartLine}
+              // category="Consulting"
               title="Technical Strategy"
               image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
               description="Not sure what to build? We help businesses analyze their processes and architect the right digital solutions to solve problems."
@@ -155,7 +155,7 @@ export default function ServicesPage() {
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-4">
                     <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center shrink-0 mt-0.5">
-                      <CheckCircle size={16} className="text-primary" />
+                      <CheckCircle size={16} className="text-primary" weight="fill" />
                     </div>
                     <span className="text-slate-300 font-medium leading-relaxed">{item}</span>
                   </div>

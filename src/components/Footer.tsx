@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Twitter, Linkedin, Github, Instagram, Phone, Mail, Facebook } from "lucide-react";
+import { EnvelopeSimpleOpen, PhoneCall, FacebookLogo, InstagramLogo, XLogo, LinkedinLogo } from "@phosphor-icons/react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,7 +9,7 @@ const SocialLink = ({ href, icon: Icon }: { href: string; icon: any }) => (
     href={href}
     className="text-white/70 hover:text-white transition-colors block"
   >
-    <Icon size={18} />
+    <Icon size={30} weight="fill" />
   </Link>
 );
 
@@ -47,24 +47,24 @@ export default function Footer() {
             <div className="flex flex-col md:flex-row items-center gap-3 md:gap-6 mb-10 md:mb-0 text-center md:text-left">
               <h4 className="text-sm md:text-base font-semibold text-white tracking-wide md:mr-2">Find And Follow Us</h4>
               <div className="flex items-center justify-center gap-5">
-                <SocialLink href="https://facebook.com" icon={Facebook} />
-                <SocialLink href="https://instagram.com" icon={Instagram} />
-                <SocialLink href="https://x.com" icon={Twitter} />
-                <SocialLink href="https://linkedin.com" icon={Linkedin} />
+                <SocialLink href="https://facebook.com" icon={FacebookLogo} />
+                <SocialLink href="https://instagram.com" icon={InstagramLogo} />
+                <SocialLink href="https://x.com" icon={XLogo} />
+                <SocialLink href="https://linkedin.com" icon={LinkedinLogo} />
               </div>
             </div>
 
             {/* Right: Contacts */}
             <div className="flex flex-col sm:flex-row items-center gap-10 md:gap-12">
               <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4 text-center md:text-left">
-                <Phone size={28} className="text-[#84cc16] mb-1 md:mb-0" />
+                <PhoneCall size={48} color="#22c55e" weight="fill" />
                 <div className="flex flex-col">
                   <span className="text-sm text-white/70">Call us at</span>
                   <span className="text-base font-medium text-white/90">+2348163059312</span>
                 </div>
               </div>
               <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4 text-center md:text-left">
-                <Mail size={28} className="text-[#84cc16] mb-1 md:mb-0" />
+                <EnvelopeSimpleOpen size={48} color="#22c55e" weight="fill" />
                 <div className="flex flex-col">
                   <span className="text-sm text-white/70">Mail us at</span>
                   <span className="text-base font-medium text-white/90">cobuildofficial@hotmail.com</span>

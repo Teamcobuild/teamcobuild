@@ -3,7 +3,7 @@ import React from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Github, Box, Layout, ArrowRight } from "lucide-react";
+import { ArrowUpRight, GithubLogo, Cube, Layout, ArrowRight } from "@phosphor-icons/react";
 import Link from "next/link";
 
 // --- Projects ---
@@ -16,8 +16,8 @@ const PROJECTS = [
     description:
       "QwikHelp is a multi-service digital platform that connects people who need everyday help with trusted individuals who can provide it, within their local area.",
     tech: ["Next.js", "Mongodb Atlas", "Figma"],
-    links: { demo: "#", github: "#" },
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+    links: { demo: "#", github: "https://github.com/Teamcobuild/qwikhelp-mobileapp" },
+    image: "project-imgs/qwikhelp.png",
   },
 ];
 
@@ -70,7 +70,7 @@ const ProjectCard = ({ project }: { project: any }) => (
               href={project.links.github}
               className="p-2 bg-white/90 backdrop-blur-md text-slate-900 rounded-full hover:bg-white hover:text-primary transition-colors shadow-sm"
             >
-              <Github size={16} />
+              <GithubLogo size={16} weight="fill" />
             </a>
           )}
           {project.links.demo && (
@@ -78,7 +78,7 @@ const ProjectCard = ({ project }: { project: any }) => (
               href={project.links.demo}
               className="p-2 bg-white/90 backdrop-blur-md text-slate-900 rounded-full hover:bg-white hover:text-primary transition-colors shadow-sm"
             >
-              <ArrowUpRight size={16} />
+              <ArrowUpRight size={16} weight="fill" />
             </a>
           )}
         </div>
@@ -165,7 +165,7 @@ export default function ProjectsPage() {
                 your concept.
               </p>
               <Link href="/contact" className="text-sm font-bold text-primary flex items-center gap-1 group-hover:gap-2 transition-all">
-                Submit Proposal <ArrowRight size={16} />
+                Submit Proposal <ArrowRight size={16} weight="fill" />
               </Link>
             </motion.div>
           </motion.div>

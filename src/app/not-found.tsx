@@ -4,7 +4,7 @@ import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { motion } from "framer-motion";
-import { House, ArrowLeft, } from "lucide-react";
+import { House, ArrowLeft } from "@phosphor-icons/react";
 
 export default function NotFound() {
   return (
@@ -47,7 +47,7 @@ export default function NotFound() {
               onClick={() => typeof window !== 'undefined' && window.history.back()}
               className="flex items-center gap-2 bg-white text-slate-600 border border-slate-200 px-8 py-3.5 rounded-full font-medium hover:bg-slate-50 transition-colors"
             >
-              <ArrowLeft size={18} />
+              <ArrowLeft size={18} weight="fill" />
               Go Back
             </button>
           </motion.div>

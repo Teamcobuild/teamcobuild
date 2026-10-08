@@ -6,7 +6,6 @@ import Link from "next/link";
 import Hero from "../components/Hero";
 import Footer from "../components/Footer";  // The Hero component we just created
 import { motion } from "framer-motion";
-import { Users, Code, Globe, Cpu, Database, Layout } from "lucide-react";
 import FAQ from "@/components/FAQ";
 
 // --- Sub-Component: Value Card ---

@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "@phosphor-icons/react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import Image from "next/image";
@@ -105,6 +105,7 @@ export default function Navbar() {
               Contact
               <ArrowUpRight
                 size={16}
+                weight="fill"
                 className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
               />
             </motion.button>
@@ -163,7 +164,7 @@ export default function Navbar() {
                     onClick={() => setIsOpen(false)}
                   >
                     Contact Us
-                    <ArrowUpRight size={18} />
+                    <ArrowUpRight size={18} weight="fill" />
                   </Link>
                 </div>
               </div>

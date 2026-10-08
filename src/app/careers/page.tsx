@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
-import { Briefcase, MapPin, Clock, ArrowRight, Users, Cpu, Handshake, Terminal, X, Loader2, CheckCircle, Link as LinkIcon } from "lucide-react";
+import { Briefcase, MapPin, Clock, ArrowRight, Users, Cpu, Handshake, Terminal, X, SpinnerGap, CheckCircle, Link as LinkIcon } from "@phosphor-icons/react";
 
 // --- Data: Open Roles ---
 const ROLES = [
@@ -100,7 +100,7 @@ const ApplicationModal = ({ isOpen, onClose, roleTitle }: any) => {
         <div className="bg-slate-50 px-8 py-6 border-b border-slate-100 flex justify-between items-center">
           <div>
             <div className="flex items-center gap-2 text-emerald-600 font-bold text-sm uppercase tracking-wider mb-1">
-              <Terminal size={16} />
+              <Terminal size={16} weight="fill" />
               Application
             </div>
             <h3 className="text-xl font-bold text-slate-900">
@@ -111,7 +111,7 @@ const ApplicationModal = ({ isOpen, onClose, roleTitle }: any) => {
             onClick={onClose}
             className="w-8 h-8 rounded-full bg-slate-200 text-slate-500 flex items-center justify-center hover:bg-slate-300 transition-colors"
           >
-            <X size={16} />
+            <X size={16} weight="fill" />
           </button>
         </div>
 
@@ -120,7 +120,7 @@ const ApplicationModal = ({ isOpen, onClose, roleTitle }: any) => {
           {isSent ? (
             <div className="text-center py-8">
               <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-4 mx-auto animate-bounce">
-                <CheckCircle size={32} />
+                <CheckCircle size={32} weight="fill" />
               </div>
               <h3 className="text-2xl font-bold text-slate-900 mb-2">Application Sent!</h3>
               <p className="text-slate-500 mb-8">
@@ -158,7 +158,7 @@ const ApplicationModal = ({ isOpen, onClose, roleTitle }: any) => {
 
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-2">
-                  <LinkIcon size={14} /> Link to CV / Portfolio / GitHub
+                  <LinkIcon size={14} weight="fill" /> Link to CV / Portfolio / GitHub
                 </label>
                 <input 
                   required
@@ -187,7 +187,7 @@ const ApplicationModal = ({ isOpen, onClose, roleTitle }: any) => {
                 disabled={isSubmitting}
                 className="w-full py-3.5 bg-slate-900 text-white font-bold rounded-xl hover:bg-emerald-600 transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed mt-2"
               >
-                {isSubmitting ? <Loader2 size={18} className="animate-spin" /> : "Submit Application"}
+                {isSubmitting ? <SpinnerGap size={18} className="animate-spin" /> : "Submit Application"}
               </button>
             </form>
           )}
@@ -222,11 +222,11 @@ const RoleCard = ({ role, index, onClick }: { role: any, index: number, onClick:
 
     <div className="flex flex-wrap gap-3 mb-6 text-sm text-slate-500">
       <div className="flex items-center gap-1.5">
-        <Briefcase size={14} />
+        <Briefcase size={14} weight="fill" />
         {role.type}
       </div>
       <div className="flex items-center gap-1.5">
-        <MapPin size={14} />
+        <MapPin size={14} weight="fill" />
         {role.location}
       </div>
     </div>
@@ -274,7 +274,7 @@ export default function CareersPage() {
             animate={{ opacity: 1, y: 0 }}
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-medium mb-6">
-              <Users size={12} className="text-emerald-600" />
+              <Users size={12} className="text-emerald-600" weight="fill" />
               <span>Join the Core Team</span>
             </div>
             <h1 className="text-4xl tracking-tighter md:text-5xl font-bold text-slate-900 mb-6">
@@ -347,7 +347,7 @@ export default function CareersPage() {
               
               <div>
                 <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mb-4">
-                   <Terminal size={20} />
+                   <Terminal size={20} weight="fill" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">Role not listed?</h3>
                 <p className="text-slate-400 text-sm">

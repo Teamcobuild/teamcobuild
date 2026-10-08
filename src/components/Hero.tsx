@@ -3,7 +3,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, } from "lucide-react";
+import { ArrowRight } from "@phosphor-icons/react";
 
 export default function Hero() {
   return (
@@ -63,7 +63,7 @@ export default function Hero() {
             className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full bg-secondary px-8 font-medium text-white transition-all duration-300 hover:bg-secondary/90 hover:scale-105 hover:shadow-lg hover:shadow-secondary/20"
           >
             <span className="mr-2">Explore Our Projects</span>
-            <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+            <ArrowRight size={18} weight="fill" className="transition-transform group-hover:translate-x-1" />
           </Link>
 
           <Link
