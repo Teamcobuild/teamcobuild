@@ -46,23 +46,6 @@ export default function Home() {
         {/* 2. Hero Section */}
         <Hero />
 
-        {/* 3. Tech Stack Strip (Infinite scroll vibe) */}
-        <section className="w-full border-y border-slate-100 py-8 bg-slate-50/30 overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6 text-center">
-            <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-6">
-              Our Engineering Foundation
-            </p>
-            <div className="flex flex-wrap justify-center gap-3 md:gap-6 opacity-70">
-              <TechItem icon={Code} label="Next.js" />
-              <TechItem icon={Code} label="ReactNative" />
-              <TechItem icon={Code} label="TypeScript" />
-              <TechItem icon={Code} label="Python" />
-              <TechItem icon={Layout} label="Tailwind CSS" />
-              <TechItem icon={Database} label="NodeJs" />
-              <TechItem icon={Layout} label="Figma" />
-            </div>
-          </div>
-        </section>
 
         {/* 4. "Why CoBuild?" Values Section */}
         <section className="py-24 px-6 bg-white">
